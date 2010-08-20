@@ -29,3 +29,7 @@ gem 'mysql2'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
