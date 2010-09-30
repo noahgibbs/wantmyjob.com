@@ -1,0 +1,8 @@
+<h1>Tell Me the Basics</h1>
+
+<%= form_tag({:controller => :questions, :action => :answer},
+             :class => :basic_reg_form) do |f| %>
+  
+
+  <%= f.submit "Get Started!" %>
+<% end %>
