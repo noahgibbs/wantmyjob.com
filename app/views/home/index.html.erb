@@ -1,11 +1,17 @@
-<h1> WantMyJob.com </h1>
+<%= render :partial => "home/menubar" %>
 
-<div class="leader">
-  What Job is Best for You?
-</div>
+<%= render :partial => "home/biglogo" %>
 
-<% link_to(:controller => :registrations, :action => :quick) do %>
+<%= render :partial => "home/loginbar" %>
+
+<ul>
+  <li> Find the Right Company For You </li>
+  <li> Find What It's Really Like </li>
+  <li> Get an Introduction </li>
+</ul>
+
+<%= link_to(:controller => :registrations, :action => :quick) do %>
   <div class="call_to_action">
-    Find Out!
+    Join Now!
   </div>
 <% end %>
