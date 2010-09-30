@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @statistic.name %>
+</p>
+
+<p>
+  <b>Int value:</b>
+  <%= @statistic.int_value %>
+</p>
+
+<p>
+  <b>Float value:</b>
+  <%= @statistic.float_value %>
+</p>
+
+
+<%= link_to 'Edit', edit_statistic_path(@statistic) %> |
+<%= link_to 'Back', statistics_path %>
