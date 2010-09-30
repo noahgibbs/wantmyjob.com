@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fullname:</b>
+  <%= @profile.fullname %>
+</p>
+
+<p>
+  <b>Birth day:</b>
+  <%= @profile.birth_day %>
+</p>
+
+<p>
+  <b>Birth month:</b>
+  <%= @profile.birth_month %>
+</p>
+
+<p>
+  <b>Birth year:</b>
+  <%= @profile.birth_year %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <b>Time zone:</b>
+  <%= @profile.time_zone %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @profile.address %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @profile.country %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @profile.state %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @profile.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
