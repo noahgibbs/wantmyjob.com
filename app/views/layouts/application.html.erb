@@ -9,7 +9,11 @@
 </head>
 <body>
 
-<%= yield %>
+<%= render :partial => "home/menubar" %>
+
+<div class="top_container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
