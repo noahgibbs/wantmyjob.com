@@ -9,7 +9,10 @@ Wantmyjob::Application.routes.draw do
 
   get "registrations/quick"
 
-  devise_for :users
+  devise_for :users do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
