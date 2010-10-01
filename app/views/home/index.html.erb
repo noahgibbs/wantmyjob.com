@@ -1,22 +1,16 @@
-<%= render :partial => "home/menubar" %>
-
-<%= render :partial => "home/biglogo" %>
-
-<%= render :partial => "home/loginbar" %>
-
-<ul>
+<ul class="info_block">
   <li> Find the Right Company For You </li>
   <li> Find What It's Really Like </li>
   <li> Get an Introduction </li>
 </ul>
 
-<%= link_to(:controller => :registrations, :action => :quick) do %>
+<div class="center">
   <div class="call_to_action">
-    Join Now!
+   <%= link_to("Join Now!", :controller => :registrations, :action => :quick) %>
   </div>
-<% end %>
+</div>
 
-<div> Some companies we profile:
+<div class="info_block"> Some companies we profile:
 
   <div class="company">
     Broadcom

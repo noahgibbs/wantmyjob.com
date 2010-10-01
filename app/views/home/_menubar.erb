@@ -1,3 +1,18 @@
-<div>
-  (Menu bar goes here)
+<div class="menu_bar">
+  <% if @big_logo %>
+    <%= render :partial => "home/biglogo" %>
+  <% else %>
+    <%= render :partial => "home/smalllogo" %>
+  <% end %>
+  Menu bar
+
+  <div class="floatright">
+    <% if current_user %>
+      Logged in as <%= current_user.name %>.
+      <%= link_to("Log out?", destroy_user_session_url) %>
+    <% else %>
+      <%= link_to("Log in", new_user_session_url) %> or
+      <%= link_to("join!", :controller => :registrations, :action => :quick) %>
+    <% end %>
+  </div>
 </div>
