@@ -1,0 +1,28 @@
+<% title "Get Started" %>
+
+<h1>Tell Me the Basics</h1>
+
+<p>
+  First, I need to know enough about you that I can add you to
+  the site, and so I can recognize you later to give you your
+  results.
+</p>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></p>
+
+  <p></p>
+
+  <p class="very_inset"><%= f.submit "Now Tell Me About Your Jobs" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
