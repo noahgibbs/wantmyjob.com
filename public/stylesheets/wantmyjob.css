@@ -3,6 +3,7 @@ body {
   padding: 0px;
   color: #503E2B;
   background-color: #FFFFF8;
+  font-family: 'Vollkorn', arial, serif;
 }
 
 .top_container {
@@ -36,7 +37,13 @@ body {
 }
 
 .info_block {
+  line-height: 150%;
+  font-size: 125%;
   margin: 2em;
+  left-margin: 1em;
+  list-style-type: none;
+  -moz-border-radius:0.5em;
+  -webkit-border-radius:0.5em;
 }
 
 .call_to_action {
@@ -44,7 +51,7 @@ body {
   padding: 0.5em;
   font-size: 200%;
   color: #FF0000;
-  background-color: #4040FF;
+  background-color: #A0A0FF;
   -moz-border-radius:1.5em;
   -webkit-border-radius:1.5em;
 }
@@ -70,8 +77,29 @@ body {
   color: #808094;
 }
 
+.inset {
+  margin-left: 2em;
+}
+
+.very_inset {
+  margin-left: 6em;
+}
+
+.primary {
+
+}
+
+.secondary {
+  color: #808094;
+}
+
 .big_logo {
   font-size: 200%;
+  text-shadow: 0.1em 0.1em 0.1em #aaf;
+}
+
+.big_logo_box {
+  padding: 5px;
 }
 
 .small_logo {
