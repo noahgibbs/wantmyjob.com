@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me@config-initializers-devise.com"
+  config.mailer_sender = "noah_gibbs@yahoo.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -105,7 +105,7 @@ Devise.setup do |config|
   # scope, setting true below.
   # Note that devise does not generate default routes. You also have to
   # specify them in config/routes.rb
-  # config.use_default_scope = true
+  config.use_default_scope = true
 
   # Configure the default scope used by Devise. By default it's the first devise
   # role declared in your routes.
