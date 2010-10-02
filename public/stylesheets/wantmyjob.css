@@ -2,13 +2,23 @@ body {
   margin: 0px;
   padding: 0px;
   color: #503E2B;
-  background-color: #FFFFF8;
+  background-color: #FFFFF0;
   font-family: 'Vollkorn', arial, serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 .top_container {
-  margin: 10px;
   padding: 0px;
+}
+
+.spaced_container {
+  margin-left: 11.111%;
+  margin-right: 22.222%;
+  margin-top: 11.111%;
+  margin-bottom: 22.222%;
 }
 
 .menu_bar {
@@ -40,7 +50,6 @@ body {
   line-height: 150%;
   font-size: 125%;
   margin: 2em;
-  left-margin: 1em;
   list-style-type: none;
   -moz-border-radius:0.5em;
   -webkit-border-radius:0.5em;
@@ -51,6 +60,7 @@ body {
   padding: 0.5em;
   font-size: 200%;
   color: #FF0000;
+  text-shadow: 0.1em 0.1em 0.1em #88f;
   background-color: #A0A0FF;
   -moz-border-radius:1.5em;
   -webkit-border-radius:1.5em;
@@ -61,8 +71,8 @@ body {
 }
 
 .call_to_action a:hover {
-  background-color: #4040FF;
   color: #FFFF00;
+  background-color: #A0A0FF;
 }
 
 .warm_text {
@@ -75,6 +85,16 @@ body {
 
 .cool_secondary_text {
   color: #808094;
+}
+
+.shadow {
+  -moz-box-shadow: 3px 3px 4px #303050;
+  -webkit-box-shadow: 3px 3px 4px #303050;
+  box-shadow: 3px 3px 4px #303050;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#040408')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#040408');
 }
 
 .inset {

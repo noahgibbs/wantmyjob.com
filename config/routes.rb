@@ -5,7 +5,14 @@ Wantmyjob::Application.routes.draw do
 
   resources :question_answers
 
-  resources :questions
+  resources :questions do
+    collection do
+      get :answer
+    end
+
+    member do
+    end
+  end
 
   get "registrations/quick"
 

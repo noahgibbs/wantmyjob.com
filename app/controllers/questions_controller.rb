@@ -4,10 +4,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @questions }
-    end
+    respond_with @questions
   end
 
   # GET /questions/1
@@ -15,10 +12,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @question }
-    end
+    respond_with @question
   end
 
   # GET /questions/new
@@ -26,10 +20,7 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @question }
-    end
+    respond_with @question
   end
 
   # GET /questions/1/edit
@@ -75,9 +66,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(questions_url) }
-      format.xml  { head :ok }
-    end
+    respond_with nil, :location => questions_url, :status => :ok
   end
 end

@@ -11,6 +11,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.token_authenticatable
 
       t.integer :profile_id
+      t.string :email, :limit => 100
+      t.string :login, :limit => 30
       t.timestamps
     end
 

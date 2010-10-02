@@ -6,6 +6,9 @@
   <% end %>
 
   <div class="floatright">
+    <%= link_to("About WMJ", "/about") %> &nbsp; &nbsp;
+    <%= link_to("Privacy", "/privacy") %> &nbsp; &nbsp;
+
     <% if current_user %>
       Logged in as <%= current_user.name %>.
       <%= link_to("Log out?", destroy_user_session_url) %>

@@ -1,25 +1,32 @@
-<div class="info_block">
-  - Find the Right Company For You <br/>
-  - What's It Like To Work There? <br/>
-  - Get an Introduction
-</div>
+<% title "The Right Job for You" %>
 
-<div class="very_inset">
-  <div class="call_to_action">
-   <%= link_to("Join Now!", :controller => :registrations, :action => :quick) %>
+<div class="spaced_container">
+  <div class="info_block">
+    - Find the Right Company For You <br/>
+    - What's It Like To Work There? <br/>
+    - Get an Introduction
   </div>
-</div>
-
-<div class="info_block">
-  <span class="secondary">Some companies we profile:</span>
-
-  <div class="company inset">
-    <span class="primary">Broadcom</span>
-      <span class="secondary">(Software Engineer)</span>
+  
+  <div class="very_inset">
+    <div class="call_to_action shadow">
+     <%= link_to("Start Now!", :controller => :registrations,
+                 :action => :quick) %>
+    </div>
+  
+    &nbsp; (or <%= link_to("log in", new_user_session_url) %>)
   </div>
-
-  <div class="company inset">
-    <span class="primary">NVidia</span>
-      <span class="secondary">(Software Engineer)</li>
+  
+  <div class="info_block">
+    <span class="secondary">Some companies we profile:</span>
+  
+    <div class="company inset">
+      <span class="primary">Broadcom</span>
+        <span class="secondary">(Software Engineer)</span>
+    </div>
+  
+    <div class="company inset">
+      <span class="primary">NVidia</span>
+        <span class="secondary">(Software Engineer)</li>
+    </div>
   </div>
 </div>

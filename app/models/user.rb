@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :timeoutable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :login
+  attr_accessible :password, :password_confirmation
 
   def self.find_for_authentication(conditions = {})
     # Find the user object for the specified parameters
