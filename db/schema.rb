@@ -10,7 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100822213943) do
+ActiveRecord::Schema.define(:version => 20101003173519) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "name",        :limit => 200
+    t.text     "address"
+    t.string   "apply_email", :limit => 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.string   "title",      :limit => 100
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "company_id"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "fullname"
@@ -35,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20100822213943) do
   end
 
   create_table "questions", :force => true do |t|
-    t.integer  "type"
+    t.integer  "question_type"
     t.text     "text"
     t.integer  "created_by"
     t.boolean  "approved"
@@ -71,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20100822213943) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
-    t.integer  "profile_id"
+    t.string   "login",                :limit => 30
     t.datetime "created_at"
     t.datetime "updated_at"
   end
