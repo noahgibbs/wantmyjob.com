@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration
   def self.up
     create_table :questions do |t|
-      t.integer :type
+      t.integer :question_type
       t.text :text, :limit => 3000
       t.integer :created_by
       t.boolean :approved
