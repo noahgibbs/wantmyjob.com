@@ -6,6 +6,7 @@ class CreateJobs < ActiveRecord::Migration
       t.date :end_date
       t.integer :company_id
       t.integer :profile_id
+
       t.timestamps
     end
   end

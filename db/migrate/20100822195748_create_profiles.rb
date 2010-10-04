@@ -12,6 +12,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :state
       t.integer :user_id
 
+      t.boolean :verified
+
       t.timestamps
     end
   end

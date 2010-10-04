@@ -4,7 +4,8 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :question_type
       t.text :text, :limit => 3000
       t.integer :created_by
-      t.boolean :approved
+
+      t.boolean :verified
       t.boolean :completed
 
       t.timestamps
