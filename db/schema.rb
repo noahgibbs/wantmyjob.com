@@ -10,12 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101003173519) do
+ActiveRecord::Schema.define(:version => 20101004020126) do
 
   create_table "companies", :force => true do |t|
-    t.string   "name",        :limit => 200
-    t.text     "address"
-    t.string   "apply_email", :limit => 100
+    t.string   "company_name", :limit => 200
+    t.integer  "headquarters"
+    t.string   "apply_email",  :limit => 100
+    t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20101003173519) do
     t.string   "country"
     t.string   "state"
     t.integer  "user_id"
+    t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20101003173519) do
     t.integer  "question_type"
     t.text     "text"
     t.integer  "created_by"
-    t.boolean  "approved"
+    t.boolean  "verified"
     t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -98,5 +100,15 @@ ActiveRecord::Schema.define(:version => 20101003173519) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "work_sites", :force => true do |t|
+    t.string   "company_name", :limit => 200
+    t.integer  "company_id"
+    t.string   "description",  :limit => 200
+    t.text     "address"
+    t.boolean  "verified"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
