@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title, :limit => 100
       t.date :start_date
       t.date :end_date
-      t.integer :company_id
+      t.integer :work_site_id
       t.integer :profile_id
 
       t.timestamps
