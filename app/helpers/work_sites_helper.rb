@@ -1,0 +1,2 @@
+module WorkSitesHelper
+end

@@ -1,0 +1,21 @@
+<h1>Listing work_sites</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @work_sites.each do |work_site| %>
+  <tr>
+    <td><%= link_to 'Show', work_site %></td>
+    <td><%= link_to 'Edit', edit_work_site_path(work_site) %></td>
+    <td><%= link_to 'Destroy', work_site, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Work site', new_work_site_path %>
