@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20101004020126) do
   end
 
   create_table "jobs", :force => true do |t|
-    t.string   "title",      :limit => 100
+    t.string   "title",        :limit => 100
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "company_id"
+    t.integer  "work_site_id"
     t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
