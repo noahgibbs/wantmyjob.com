@@ -15,8 +15,8 @@ class HomeController < ApplicationController
     # Check to see if the user has entered any current jobs
     jobs = Job.where :profile => current_user.profile
     if(jobs == nil || jobs.empty?)
-      #redirect_to
-      #return
+      redirect_to :controller => :jobs, :action => :enter
+      return
     end
 
     # Assume there are still questions to answer

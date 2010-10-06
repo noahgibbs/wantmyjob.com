@@ -1,4 +1,10 @@
 Wantmyjob::Application.routes.draw do
+  resources :jobs do
+    collection do
+      get :enter
+    end
+  end
+
   resources :statistics
 
   resources :profiles
