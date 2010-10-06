@@ -13,7 +13,13 @@ class HomeController < ApplicationController
     end
 
     # Check to see if the user has entered any current jobs
+    jobs = Job.where :profile => current_user.profile
+    if(jobs == nil || jobs.empty?)
+      #redirect_to
+      #return
+    end
 
-    raise "Unimplemented"
+    # Assume there are still questions to answer
+    redirect_to :controller => :questions, :action => :answer
   end
 end
