@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_filter :authenticate_user!
+
   # Action for entering a list of new jobs
   def enter
   end
