@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
   before_filter :authenticate_user!
 
+  def answer
+  end
+
   # GET /questions
   # GET /questions.xml
   def index
