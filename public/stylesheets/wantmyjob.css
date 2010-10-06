@@ -113,6 +113,10 @@ h1 {
   color: #808094;
 }
 
+.emphatic {
+  font-weight: bold;
+}
+
 .big_logo {
   font-size: 200%;
   text-shadow: 0.1em 0.1em 0.1em #aaf;

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_filter :authenticate_user!, :except => :index
+
   def index
     @big_logo = true
   end
@@ -13,7 +15,7 @@ class HomeController < ApplicationController
     end
 
     # Check to see if the user has entered any current jobs
-    jobs = Job.where :profile => current_user.profile
+    jobs = Job.where :profile_id => current_user.profile.id
     if(jobs == nil || jobs.empty?)
       redirect_to :controller => :jobs, :action => :enter
       return
