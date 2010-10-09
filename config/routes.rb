@@ -4,6 +4,7 @@ Wantmyjob::Application.routes.draw do
   resources :jobs do
     collection do
       get :enter
+      post :enter_post
     end
   end
 

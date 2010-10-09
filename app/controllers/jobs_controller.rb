@@ -5,6 +5,12 @@ class JobsController < ApplicationController
   def enter
   end
 
+  def enter_post
+    print "\n\n\n*** PARAMS\n\n#{params.inspect}\n\n\n***\n\n\n"
+
+    redirect_to :controller => :questions, :action => :answer
+  end
+
   # GET /jobs
   # GET /jobs.xml
   def index
