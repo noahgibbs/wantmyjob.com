@@ -1,7 +1,87 @@
-<h1> Tell Us About Your Jobs </h1>
+<div class="spaced_container">
+  <h2 class="very_inset"> Tell Us Some Places You've Worked </h2>
 
-<%= form_tag do %>
+  <!-- Invisible sample job description to use as a template -->
+  <div id="job_line_1" class="sample_job_line nodisplay">
+    <table style="border: 1px solid black; margin: 3px;">
+      <tr>
+        <td> <label for="job_1_employer]">Employer:</label> </td>
+        <td>
+          <input id="job_1_employer" name="job[1][employer]" type="text" />
+        </td>
+        <td> <label for="job_1_start_date">Start Date:</label> </td>
+        <td>
+          <%= date_select("job[1]", "start_date",
+                          :start_year => Time.now.year - 20,
+                          :end_year => Time.now.year, :order => [:month, :year],
+                          :include_blank => true) %>
+        </td>
+      </tr>
+      <tr>
+        <td> <label for="job_1_title">Job Title:</label> </td>
+        <td>
+          <input id="job_1_title" name="job[1][title]" type="text" />
+        </td>
+        <td> <label for="job_1_end_date">End Date:</label> </td>
+        <td>
+          <%= date_select("job[1]", "end_date",
+                          :start_year => Time.now.year - 20,
+                          :end_year => Time.now.year, :order => [:month, :year],
+                          :include_blank => true) %>
+        </td>
+      </tr>
+    </table>
+  </div>
 
-  <%= submit_tag "And then answer some questions" %>
+  <%= form_tag({:controller => :jobs, :action => :enter_post}) do %>
+    <div id="tell_us_form">
 
-<% end %>
+    </div>
+
+    <%= submit_tag "And then answer some questions", :class => "very_inset" %>
+  <% end %>
+
+  <%= javascript_tag do %>
+  var last_job_line = 0;
+
+  function add_new_job_line() {
+    var new_line = $(".sample_job_line").clone();
+    new_line.appendTo($("#tell_us_form"));
+    new_line.addClass("job_line");
+    new_line.removeClass("sample_job_line nodisplay");
+
+    last_job_line++;
+
+    var attr_replace = function(object, attr) {
+      $(object).attr(attr,
+                     $(object).attr(attr).replace("_1", "_" + last_job_line));
+      $(object).attr(attr,
+                     $(object).attr(attr).replace("[1]",
+                                                  "[" + last_job_line + "]"));
+    };
+
+    attr_replace(new_line, "id");
+
+    new_line.find("label[for*=1]").each(function() {
+      attr_replace(this, "for");
+    });
+
+    new_line.find("input[name*=1]").each(function() {
+      attr_replace(this, "id");
+      attr_replace(this, "name");
+    });
+
+  }
+
+  $(".job_line").live("change", function() {
+    if($(this).attr("id") == "job_line_" + last_job_line) {
+      /* Just changed the final job line */
+      add_new_job_line();
+    }
+  });
+
+  $(function() {
+    add_new_job_line();
+  });
+  <% end %>
+</div>
