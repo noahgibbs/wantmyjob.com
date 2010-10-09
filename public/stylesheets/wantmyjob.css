@@ -15,10 +15,7 @@ h1 {
 }
 
 .spaced_container {
-  margin-left: 11.111%;
-  margin-right: 22.222%;
-  margin-top: 11.111%;
-  margin-bottom: 22.222%;
+  margin: 11.111%;
 }
 
 .menu_bar {
@@ -134,10 +131,24 @@ h1 {
   text-align: center;
 }
 
+.center_inline {
+  text-align: center;
+  display: inline;
+}
+
 .clear {
   clear: both;
 }
 
 .floatright {
   float: right;
+}
+
+.center_div {
+  max-width: 30% ;
+  margin: 0 auto ;
+}
+
+.nodisplay {
+  display: none;
 }
