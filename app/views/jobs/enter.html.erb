@@ -5,26 +5,26 @@
   <div id="job_line_1" class="sample_job_line nodisplay">
     <table style="border: 1px solid black; margin: 3px;">
       <tr>
-        <td> <label for="job_1_employer]">Employer:</label> </td>
+        <td> <label for="job_employer]">Employer:</label> </td>
         <td>
-          <input id="job_1_employer" name="job[1][employer]" type="text" />
+          <input id="job_employer" name="job[][employer]" type="text" />
         </td>
-        <td> <label for="job_1_start_date">Start Date:</label> </td>
+        <td> <label for="job_start_date">Start Date:</label> </td>
         <td>
-          <%= date_select("job[1]", "start_date",
+          <%= date_select("job[]", "start_date",
                           :start_year => Time.now.year - 20,
                           :end_year => Time.now.year, :order => [:month, :year],
                           :include_blank => true) %>
         </td>
       </tr>
       <tr>
-        <td> <label for="job_1_title">Job Title:</label> </td>
+        <td> <label for="job_title">Job Title:</label> </td>
         <td>
-          <input id="job_1_title" name="job[1][title]" type="text" />
+          <input id="job_title" name="job[][title]" type="text" />
         </td>
-        <td> <label for="job_1_end_date">End Date:</label> </td>
+        <td> <label for="job_end_date">End Date:</label> </td>
         <td>
-          <%= date_select("job[1]", "end_date",
+          <%= date_select("job[]", "end_date",
                           :start_year => Time.now.year - 20,
                           :end_year => Time.now.year, :order => [:month, :year],
                           :include_blank => true) %>
@@ -52,25 +52,7 @@
 
     last_job_line++;
 
-    var attr_replace = function(object, attr) {
-      $(object).attr(attr,
-                     $(object).attr(attr).replace("_1", "_" + last_job_line));
-      $(object).attr(attr,
-                     $(object).attr(attr).replace("[1]",
-                                                  "[" + last_job_line + "]"));
-    };
-
-    attr_replace(new_line, "id");
-
-    new_line.find("label[for*=1]").each(function() {
-      attr_replace(this, "for");
-    });
-
-    new_line.find("input[name*=1]").each(function() {
-      attr_replace(this, "id");
-      attr_replace(this, "name");
-    });
-
+    new_line.attr("id", "job_line_" + last_job_line);
   }
 
   $(".job_line").live("change", function() {
