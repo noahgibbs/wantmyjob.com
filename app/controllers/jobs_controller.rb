@@ -7,7 +7,14 @@ class JobsController < ApplicationController
   end
 
   def enter_post
-    print "\n\n\n*** PARAMS\n\n#{params.inspect}\n\n\n***\n\n\n"
+    jobs = []
+    params[:jobs].each do |job_hash|
+      next if job_hash[:employer].empty? && job_hash[:title].empty?
+
+      jobs << Job.new(job_hash.merge(:profile_id => current_user.profile.id))
+    end
+
+    jobs.each(&:save!)
 
     redirect_to :controller => :questions, :action => :answer
   end
