@@ -1,0 +1,10 @@
+Release 1, MVP:
+
+  - Answer questions
+  - Submit new questions
+  - Give basic match based on questions
+
+Important, but Not Release 1:
+
+  - Cucumber tests
+  - RSpec tests
