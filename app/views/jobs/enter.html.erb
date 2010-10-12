@@ -5,26 +5,26 @@
   <div id="job_line_1" class="sample_job_line nodisplay">
     <table style="border: 1px solid black; margin: 3px;">
       <tr>
-        <td> <label for="job_employer]">Employer:</label> </td>
+        <td> <label for="jobs_employer">Employer:</label> </td>
         <td>
-          <input id="job_employer" name="job[][employer]" type="text" />
+          <input id="jobs_employer" name="jobs[][employer]" type="text" />
         </td>
-        <td> <label for="job_start_date">Start Date:</label> </td>
+        <td> <label for="jobs_start_date">Start Date:</label> </td>
         <td>
-          <%= date_select("job[]", "start_date",
+          <%= date_select("jobs[]", "start_date",
                           :start_year => Time.now.year - 20,
                           :end_year => Time.now.year, :order => [:month, :year],
                           :include_blank => true) %>
         </td>
       </tr>
       <tr>
-        <td> <label for="job_title">Job Title:</label> </td>
+        <td> <label for="jobs_title">Job Title:</label> </td>
         <td>
-          <input id="job_title" name="job[][title]" type="text" />
+          <input id="jobs_title" name="jobs[][title]" type="text" />
         </td>
-        <td> <label for="job_end_date">End Date:</label> </td>
+        <td> <label for="jobs_end_date">End Date:</label> </td>
         <td>
-          <%= date_select("job[]", "end_date",
+          <%= date_select("jobs[]", "end_date",
                           :start_year => Time.now.year - 20,
                           :end_year => Time.now.year, :order => [:month, :year],
                           :include_blank => true) %>
@@ -53,6 +53,14 @@
     last_job_line++;
 
     new_line.attr("id", "job_line_" + last_job_line);
+
+    /* Rails seems to have trouble with date_select and creating an
+       array-style url_encoded form body.  There's no doubt some way
+       to make it work, but I'm just fixing it up in JavaScript for
+       now. */
+    new_line.find("select,input[type=hidden]").each(function() {
+      $(this).attr("name", $(this).attr("name").replace("jobs[", "jobs[]["));
+    });
   }
 
   $(".job_line").live("change", function() {

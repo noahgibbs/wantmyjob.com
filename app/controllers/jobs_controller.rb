@@ -3,6 +3,7 @@ class JobsController < ApplicationController
 
   # Action for entering a list of new jobs
   def enter
+    @jobs = Job.new
   end
 
   def enter_post
