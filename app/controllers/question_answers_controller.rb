@@ -1,5 +1,6 @@
 class QuestionAnswersController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
 
   # GET /question_answers
   # GET /question_answers.xml

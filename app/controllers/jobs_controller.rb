@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
 
   # Action for entering a list of new jobs
   def enter

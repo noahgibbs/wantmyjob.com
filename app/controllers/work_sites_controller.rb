@@ -1,5 +1,6 @@
 class WorkSitesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
 
   # GET /work_sites
   # GET /work_sites.xml
