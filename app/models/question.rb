@@ -3,6 +3,7 @@ class Question < ActiveRecord::Base
 
   MAX_ANSWERS = 5
 
-  PREVIOUS_EMPLOYER_QUESTION = 1
-  PERFECT_COMPANY_QUESTION = 2
+  # An Employer question can be about a previous employer, or about
+  # your perfect company to work for
+  EMPLOYER_QUESTION = 1
 end
