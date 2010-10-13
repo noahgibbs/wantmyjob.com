@@ -7,7 +7,7 @@
   perfect employer".
 </p>
 
-<%= form_tag do %>
+<%= form_tag :action => :enter_post do %>
 
   <%= label_tag 'question[text]', "Question" %> <br/>
   <%= text_area_tag 'question[text]',

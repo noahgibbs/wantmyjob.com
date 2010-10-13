@@ -17,6 +17,8 @@ class QuestionsController < ApplicationController
   end
 
   def enter_post
+    question = Question.new(params[:question])
+    answers = params[:answer].map {|a| QuestionAnswer.new(a)}
   end
 
   # GET /questions
