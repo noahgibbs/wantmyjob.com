@@ -17,6 +17,9 @@ Wantmyjob::Application.routes.draw do
   resources :questions do
     collection do
       get :answer
+      post :answer_post
+      get :enter
+      post :enter_post
     end
 
     member do

@@ -1,11 +1,18 @@
 class QuestionsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
+  before_filter :requires_admin, :except => [:answer, :answer_post,
+                                             :enter, :enter_post]
 
   respond_to :html
 
   def answer
   end
+
+  def answer_post
+  end
+
+  def enter
+  def enter_post
 
   # GET /questions
   # GET /questions.xml
