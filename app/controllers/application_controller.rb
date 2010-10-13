@@ -4,5 +4,6 @@ class ApplicationController < ActionController::Base
   SCAFFOLD_ACTIONS = [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def requires_admin
+    redirect_to "/" unless current_user.admin
   end
 end
