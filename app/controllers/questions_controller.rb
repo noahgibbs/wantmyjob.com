@@ -2,6 +2,8 @@ class QuestionsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
 
+  respond_to :html
+
   def answer
   end
 
