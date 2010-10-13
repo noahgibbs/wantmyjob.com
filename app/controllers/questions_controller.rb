@@ -12,7 +12,12 @@ class QuestionsController < ApplicationController
   end
 
   def enter
+    @question = Question.new
+    @answers = (1..Question::MAX_ANSWERS).map { QuestionAnswer.new }
+  end
+
   def enter_post
+  end
 
   # GET /questions
   # GET /questions.xml

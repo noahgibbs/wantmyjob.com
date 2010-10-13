@@ -1,0 +1,28 @@
+<h1> Suggest a Question </h1>
+
+<p>
+  In your question, write &lt;company&gt; where the company name should
+  be, just like you'd write &lt;br&gt; or &lt;i&gt; in HTML.  Remember
+  that sometimes it will be a description like "your dream job" or "your
+  perfect employer".
+</p>
+
+<%= form_tag do %>
+
+  <%= label_tag 'question[text]', "Question" %> <br/>
+  <%= text_area_tag 'question[text]',
+        "At <company>, what documents have to be shredded?",
+        :escape => false, :rows => 5, :cols => 60 %> <br/>
+
+  <table>
+    <% (1..Question::MAX_ANSWERS).each do |n| %>
+      <tr>
+        <td><%= label_tag 'answers[][text]', "Answer \##{n}" %></td>
+        <td><%= text_field_tag 'answers[][text]' %> </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= submit_tag 'Submit' %>
+
+<% end %>
