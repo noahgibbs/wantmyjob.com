@@ -4,7 +4,21 @@ Release 1, MVP:
   - Submit new questions
   - Give basic match based on questions
 
+Testing/Prototyping:
+
+  - Add toggle to show or not show demo profiles for matches
+  - Enter a bunch of demo profiles for matches
+
 Important, but Not Release 1:
 
   - Cucumber tests
   - RSpec tests
+
+Usability:
+
+  - When entering jobs, set start_date on following row to end_date just
+    entered, unless that date has been changed manually at some point
+
+Formatting and Prettiness:
+
+  - Max layout width for top-level container
