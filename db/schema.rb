@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013123104) do
+ActiveRecord::Schema.define(:version => 20101013125030) do
 
   create_table "companies", :force => true do |t|
     t.string   "company_name", :limit => 200
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20101013123104) do
     t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "demo"
   end
 
   create_table "question_answers", :force => true do |t|
