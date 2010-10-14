@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
-  has_many :question_answers, :dependent => :destroy
+  has_many :question_answers, :dependent => :destroy,
+           :autosave => true
 
   MAX_ANSWERS = 5
 

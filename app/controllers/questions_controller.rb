@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   expose(:answers) do
     if params[:answers]
       params[:answers].select {|s| !s[:text].empty?}.map do |a|
-        question << QuestionAnswer.new(a)
+        question.question_answers << QuestionAnswer.new(a)
       end
     else
       (1..Question::MAX_ANSWERS).map { QuestionAnswer.new }
@@ -28,8 +28,7 @@ class QuestionsController < ApplicationController
     q = question
     ans = answers
     ActiveRecord::Base.transaction do
-      q.save!
-      ans.each { |a| a.save! }
+      q.save!  # Transaction because this saves all answers
     end
     redirect_to questions_path
   end
