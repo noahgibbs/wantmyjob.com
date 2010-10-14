@@ -2,14 +2,14 @@
 
 <p>
   <b>Type:</b>
-  <%= @question.type %>
+  <%= question.type %>
 </p>
 
 <p>
   <b>Text:</b>
-  <%= @question.text %>
+  <%= question.text %>
 </p>
 
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Edit', edit_question_path(question) %> |
 <%= link_to 'Back', questions_path %>

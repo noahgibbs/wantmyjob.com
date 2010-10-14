@@ -9,9 +9,9 @@
     <th></th>
   </tr>
 
-<% @questions.each do |question| %>
+<% questions.each do |question| %>
   <tr>
-    <td><%= question.type %></td>
+    <td><%= question.question_type %></td>
     <td><%= question.text %></td>
     <td><%= link_to 'Show', question %></td>
     <td><%= link_to 'Edit', edit_question_path(question) %></td>
