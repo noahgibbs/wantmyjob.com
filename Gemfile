@@ -7,7 +7,7 @@ gem 'rails', '3.0.0'
 
 gem 'mysql2'
 
-gem 'decent_exposure'
+gem 'decent_exposure', '~>1.0.0.rc1'
 
 gem "devise", '~>1.1'
 
