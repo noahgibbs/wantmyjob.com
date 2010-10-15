@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013125030) do
+ActiveRecord::Schema.define(:version => 20101015020824) do
+
+  create_table "answers", :force => true do |t|
+    t.integer "job_id",                     :null => false
+    t.integer "answer_type",                :null => false
+    t.integer "question_id",                :null => false
+    t.integer "data1",       :default => 0, :null => false
+    t.integer "data2",       :default => 0, :null => false
+    t.integer "data3",       :default => 0, :null => false
+    t.integer "data4",       :default => 0, :null => false
+    t.integer "data5",       :default => 0, :null => false
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "company_name", :limit => 200

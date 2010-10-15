@@ -1,7 +1,7 @@
 class Job < ActiveRecord::Base
   belongs_to :work_site
   belongs_to :profile
-  # has_many :answers
+  has_many :answers
 
   before_save :check_employer
 
