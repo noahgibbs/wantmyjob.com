@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Job:</b>
+  <%= @answer.job_id %>
+</p>
+
+<p>
+  <b>Answer type:</b>
+  <%= @answer.answer_type %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @answer.question_id %>
+</p>
+
+<p>
+  <b>Data1:</b>
+  <%= @answer.data1 %>
+</p>
+
+<p>
+  <b>Data2:</b>
+  <%= @answer.data2 %>
+</p>
+
+<p>
+  <b>Data3:</b>
+  <%= @answer.data3 %>
+</p>
+
+<p>
+  <b>Data4:</b>
+  <%= @answer.data4 %>
+</p>
+
+<p>
+  <b>Data5:</b>
+  <%= @answer.data5 %>
+</p>
+
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>
