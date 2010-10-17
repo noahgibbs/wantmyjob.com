@@ -28,6 +28,10 @@ class QuestionsController < ApplicationController
 
   def enter_post
     q = question
+    q.created_by = current_user.profile.id
+    q.completed = true
+    q.verified = false
+    q.question_type = Question::EMPLOYER_QUESTION
     ans = answers
     ActiveRecord::Base.transaction do
       q.save!  # Transaction because this saves all answers
