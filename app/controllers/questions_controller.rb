@@ -39,6 +39,11 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
+  # Action to verify questions, checked from the index view
+  def verify_questions
+    raise "Unimplemented!"
+  end
+
   # GET /questions
   def index
     respond_with questions

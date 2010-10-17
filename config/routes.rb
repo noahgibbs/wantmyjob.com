@@ -22,6 +22,7 @@ Wantmyjob::Application.routes.draw do
       post :answer_post
       get :enter
       post :enter_post
+      post :verify_questions
     end
 
     member do
