@@ -3,23 +3,38 @@ class Profile < ActiveRecord::Base
   has_many :jobs
 
   def next_question
-    last_perfect = Answer.last_perfect_answer.for_profile_id(id)
-    last_co = Answer.last_company_answer.for_profile_id(id)
+    my_jobs = jobs
+    questions = Question.verified.random_order.limit(5)
+    answers = Answer.where(:question_id => questions.map(&:id),
+                           :job_id => (my_jobs.map(&:id) + [nil]))
 
-    # For now, just simple greater-than.  We'll need to do
-    # something better when we have perfect-only and company-
-    # only question types.
+    co_answers = answers.select {|a| a.answer_type == Answer::COMPANY_ANSWER}
 
-    use_perfect = last_perfect.id <= last_co.id
+    # There should be 5 * (1 + num_jobs) total possible answers here.
+    # We want to randomize proportionally to the non-answered stuff.
+    # So every combination with no answer is a 'chance', and we count
+    # perfect-company chances and regular-company chances.
 
+    co_chances = 5 * jobs.size - co_answers.size
+    pc_chances = 5 - (answers.size - co_answers.size)
+
+    co_odds = (0.0 + co_chances) / (0.0 + co_chances + pc_chances)
+    use_perfect = rand() > co_odds
+
+    job = nil
     if use_perfect
-      template = :ask_perfect
-      @company_name = "your perfect job"
+      used_questions = answers.select {|a| a.answer_type == Answer::PERFECT_COMPANY_ANSWER }.map(&:question_id)
+      question = Question.find((questions.map(&:id) - used_questions).sample)
+      answer_type = Answer::PERFECT_COMPANY_ANSWER
     else
-      template = :ask_company
-      @company_name = work_site.checked_company_name
+      used_pairs = co_answers.map {|a| [a.question_id, a.job_id]}
+      all_pairs = questions.map {|q| jobs.map {|j| [q.id, j.id]}}
+      question_pair = (all_pairs - used_pairs).sample
+      question = Question.find(question_pair[0])
+      answer_type = Answer::COMPANY_ANSWER
+      job = Job.find(question_pair[1])
     end
 
-    render :action => template
+    [question, answer_type, job]
   end
 end
