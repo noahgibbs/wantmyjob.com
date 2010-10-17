@@ -30,7 +30,7 @@ class Question < ActiveRecord::Base
 
   # This is going to be *SO SLOW*.  But I'll optimize after I know
   # better what a right answer will look like.
-  scope :next_perfect_company_question_for_profile lambda {|profile|
+  scope :next_perfect_company_question_for_profile, lambda {|profile|
     joins("LEFT JOIN " +
           "(select * from answers WHERE " +
             "answer_type = #{Answer::PERFECT_COMPANY_ANSWER} AND " +

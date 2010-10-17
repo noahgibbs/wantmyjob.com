@@ -19,6 +19,8 @@ class QuestionsController < ApplicationController
   end
 
   def answer
+    next_question, answer_type, question_job = current_user.profile.next_question
+    
   end
 
   def answer_post

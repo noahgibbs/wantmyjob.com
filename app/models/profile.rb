@@ -24,12 +24,18 @@ class Profile < ActiveRecord::Base
     job = nil
     if use_perfect
       used_questions = answers.select {|a| a.answer_type == Answer::PERFECT_COMPANY_ANSWER }.map(&:question_id)
+
       question = Question.find((questions.map(&:id) - used_questions).sample)
       answer_type = Answer::PERFECT_COMPANY_ANSWER
     else
       used_pairs = co_answers.map {|a| [a.question_id, a.job_id]}
-      all_pairs = questions.map {|q| jobs.map {|j| [q.id, j.id]}}
+
+      # All pairs is the cartesian product of questions with jobs
+      all_pairs = []
+      questions.each {|q| jobs.each {|j| all_pairs << [q.id, j.id]}}
+
       question_pair = (all_pairs - used_pairs).sample
+      raise "No questions!" if(!question_pair || question_pair == [])
       question = Question.find(question_pair[0])
       answer_type = Answer::COMPANY_ANSWER
       job = Job.find(question_pair[1])
