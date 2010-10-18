@@ -9,7 +9,7 @@ gem 'mysql2'
 
 gem 'decent_exposure', '~>1.0.0.rc1'
 
-gem "devise", '~>1.1'
+gem "devise", '~>1.1.2'
 
 # Deploy with Capistrano
 # gem 'capistrano'
