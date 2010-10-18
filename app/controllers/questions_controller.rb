@@ -20,7 +20,19 @@ class QuestionsController < ApplicationController
 
   def answer
     next_question, answer_type, question_job = current_user.profile.next_question
-    
+    @question = next_question
+    if answer_type == Answer::PERFECT_COMPANY_ANSWER
+      template = "perfect_co_answer"
+      @co_name = "your perfect job"
+    elsif answer_type == Answer::COMPANY_ANSWER
+      @job = question_job
+      template = "co_answer"
+      @co_name = @job.employer
+    else
+      raise "Unimplemented!"
+    end
+
+    @question_type_form = render :partial => template
   end
 
   def answer_post
@@ -42,6 +54,8 @@ class QuestionsController < ApplicationController
   # Action to verify questions, checked from the index view
   def verify_questions
     raise "Unimplemented!"
+
+    redirect_to :action => :index
   end
 
   # GET /questions

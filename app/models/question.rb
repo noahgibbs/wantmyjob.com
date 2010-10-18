@@ -40,4 +40,8 @@ class Question < ActiveRecord::Base
     order("questions.id")
   }
 
+  def text_for(employer_name)
+    text.gsub("<company>", employer_name)
+  end
+
 end
