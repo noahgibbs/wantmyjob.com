@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
          :timeoutable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :login, :email, :password, :password_confirmation,
+    :remember_me
 
   #validate :login, :uniqueness => true
   #validate :email, :uniqueness => true
