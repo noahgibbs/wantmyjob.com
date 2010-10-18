@@ -9,16 +9,21 @@ class Profile < ActiveRecord::Base
                            :job_id => (my_jobs.map(&:id) + [nil]))
 
     co_answers = answers.select {|a| a.answer_type == Answer::COMPANY_ANSWER}
+    n_questions = questions.count
+    n_pc_answers = answers.size - co_answers.size
 
     # There should be 5 * (1 + num_jobs) total possible answers here.
     # We want to randomize proportionally to the non-answered stuff.
     # So every combination with no answer is a 'chance', and we count
     # perfect-company chances and regular-company chances.
 
-    co_chances = 5 * jobs.size - co_answers.size
-    pc_chances = 5 - (answers.size - co_answers.size)
+    co_chances = n_questions * jobs.size - co_answers.size
+    pc_chances = n_questions - n_pc_answers
 
     co_odds = (0.0 + co_chances) / (0.0 + co_chances + pc_chances)
+
+    #print "Odds:  Company: #{co_chances}, Perfect: #{pc_chances}, Calc: #{co_odds}\n\n\n"
+
     use_perfect = rand() > co_odds
 
     job = nil
