@@ -30,10 +30,21 @@ gem "devise", '~>1.1.2'
 #   gem 'webrat'
 # end
 
+# Development-only gems
 group :development do
   gem 'mongrel'
 end
 
+# Test-only gems
 group :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+
+# Dev-and-test gems -- usually for test-environment tools that
+# also have generators or similar that you'd like to run from
+# the command line without typing "RAILS_ENV=test rake foo:bar".
+group :development, :test do
+  gem "rspec-rails", "~> 2.0.0.beta.22"
+  gem "capybara"
+  gem "factory_girl"
 end
