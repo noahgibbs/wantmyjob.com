@@ -40,7 +40,7 @@ module Wantmyjob
     config.filter_parameters += [:password]
 
     config.generators do |g|
-      g.test_framework :rspec, :fixture_replacement => :factory_girl, :fixture => true, :views => false
+      g.test_framework :rspec, :fixture_replacement => :factory_girl, :dir => "spec/factories"
       g.integration_tool :rspec, :fixture => true, :views => true
     end
   end
