@@ -3,6 +3,10 @@ Release 1, MVP:
   - Answer questions
   - Give basic match based on questions
 
+Testing Before Release 1:
+
+  - Make sure saving multiple jobs sets the profile ID correctly
+
 Testing/Prototyping:
 
   - Add toggle to show or not show demo profiles for matches
