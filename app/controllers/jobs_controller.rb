@@ -10,7 +10,8 @@ class JobsController < ApplicationController
   def enter_post
     jobs = []
     params[:jobs].each do |job_hash|
-      next if job_hash[:employer].empty? && job_hash[:title].empty?
+      next if (job_hash[:employer].nil? || job_hash[:employer].empty?) &&
+        (job_hash[:title].nil? || job_hash[:title].empty?)
 
       jobs << Job.new(job_hash.merge(:profile_id => current_user.profile.id))
     end
