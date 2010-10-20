@@ -30,17 +30,24 @@ describe JobsController do
     it "should redirect to the answer-questions page" do
       # TODO: make sure current_user.profile.id returns a known
       # quantity and test for it
-      job1 = mock_model(Job)
-      job1.should_receive(:save!).exactly(3).times
-      Job.stub(:new).with({:employer => "BogoMIPS",
-                           :title => "Yahoo"}) { job1 }
-      Job.stub(:new).with({:employer => "Consolidated Accumulated"}) { job1 }
-      Job.stub(:new).with({:title => "Senior Vice-Chancellor"}) { job1 }
+      job = mock_model(Job)
+      profile = mock_model(Profile)
+      job.should_receive(:save!).exactly(3).times
+
+      mock_user.stub(:profile) { profile }
+      Job.stub(:new).with({ "employer" => "BogoMIPS",
+                            "title" => "Yahoo",
+                            "profile_id" => profile.id }) {|p| job }
+      Job.stub(:new).with({ "employer" => "Consolidated Accumulated",
+                            "profile_id" => profile.id }) { job }
+      Job.stub(:new).with({ "title" => "Senior Vice-Chancellor",
+                            "profile_id" => profile.id }) { job }
+
       post :enter_post,
-           :jobs => [{ :employer => "BogoMIPS", :title => "Yahoo"},
-                     { },
-                     { :employer => "Consolidated Accumulated" },
-                     { :title => "Senior Vice-Chancellor"},
+           :jobs => [{ "employer" => "BogoMIPS", "title" => "Yahoo"},
+                     { "employer" => "", "title" => ""},
+                     { "employer" => "Consolidated Accumulated" },
+                     { "title" => "Senior Vice-Chancellor"},
                      { }
                     ]
       # TODO: verify that items are added
