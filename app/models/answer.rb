@@ -16,12 +16,4 @@ class Answer < ActiveRecord::Base
   scope :for_profile_id, lambda {|pid| where(:profile_id => pid)}
   scope :for_company_id, lambda {|cid| where(:company_id => cid)}
 
-  def profile_id
-    job.profile_id
-  end
-
-  def profile
-    job.profile
-  end
-
 end
