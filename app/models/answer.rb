@@ -3,6 +3,8 @@ class Answer < ActiveRecord::Base
   belongs_to :job
   belongs_to :question
 
+  NUM_DATA_FIELDS = 4
+
   # There are many fine Answer Types, which correspond
   # only somewhat to question types.  For instance,
   # an EMPLOYER_QUESTION can be answered with a
