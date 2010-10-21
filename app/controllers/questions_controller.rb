@@ -35,7 +35,21 @@ class QuestionsController < ApplicationController
   end
 
   def answer_post
-    a = Answer.new params[:answer]
+    pa = params[:answer]
+    # Combine virtual sub-attributes
+    (1..Answer::NUM_DATA_FIELDS).each do |data_idx|
+      # nil and the empty string both become 0
+      pa["data#{data_idx}"] = pa["data#{data_idx}"].to_i
+    end 
+    # Add each sub-key to its corresponding real attribute
+    pa.keys.each do |key|
+      if key =~ /^data\d_\d$/
+        pa[key[0..-3]] += pa[key].to_i
+        pa.delete key
+      end
+    end
+
+    a = Answer.new pa
     a.save!
 
     # TODO:  fix this later to save a redirection?
