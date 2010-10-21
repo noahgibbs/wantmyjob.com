@@ -19,13 +19,14 @@ class QuestionsController < ApplicationController
   end
 
   def answer
-    next_question, answer_type, question_job = current_user.profile.next_question
+    next_question, @answer_type, @question_job = current_user.profile.next_question
     @question = next_question
-    if answer_type == Answer::PERFECT_COMPANY_ANSWER
+    @answers = next_question.question_answers.order("id ASC")
+    if @answer_type == Answer::PERFECT_COMPANY_ANSWER
       @template = "perfect_co_answer"
       @co_name = "your perfect job"
-    elsif answer_type == Answer::COMPANY_ANSWER
-      @job = question_job
+    elsif @answer_type == Answer::COMPANY_ANSWER
+      @job = @question_job
       @template = "co_answer"
       @co_name = @job.employer
     else
@@ -34,6 +35,11 @@ class QuestionsController < ApplicationController
   end
 
   def answer_post
+    a = Answer.new params[:answer]
+    a.save!
+
+    # TODO:  fix this later to save a redirection?
+    redirect_to :controller => :home, :action => :portal
   end
 
   def enter_post
