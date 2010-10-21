@@ -27,21 +27,28 @@ describe JobsController do
   end
 
   describe "POST enter_post" do
-    it "should redirect to the answer-questions page" do
-      # TODO: make sure current_user.profile.id returns a known
-      # quantity and test for it
+    it "should create three jobs with the correct parameters" do
+      PARAMS1 = { "employer" => "BogoMIPS", "title" => "Yahoo"}
+      PARAMS2 = { "employer" => "Consolidated Accumulated" }
+      PARAMS3 = { "title" => "Senior Vice-Chancellor"}
+
       job = mock_model(Job)
       profile = mock_model(Profile)
-      job.should_receive(:save!).exactly(3).times
 
       mock_user.stub(:profile) { profile }
-      Job.stub(:new).with({ "employer" => "BogoMIPS",
-                            "title" => "Yahoo",
-                            "profile_id" => profile.id }) {|p| job }
-      Job.stub(:new).with({ "employer" => "Consolidated Accumulated",
-                            "profile_id" => profile.id }) { job }
-      Job.stub(:new).with({ "title" => "Senior Vice-Chancellor",
-                            "profile_id" => profile.id }) { job }
+      create_times = 0
+      Job.should_receive(:new).exactly(3).times.and_return(job) { |args|
+        case create_times
+          when 0: args.should == PARAMS1.merge("profile_id" => profile.id)
+          when 1: args.should == PARAMS2.merge("profile_id" => profile.id)
+          when 2: args.should == PARAMS3.merge("profile_id" => profile.id)
+          else raise "Job.new should only be called three times!"
+        end
+
+        create_times += 1
+        job
+      }
+      job.should_receive(:save!).exactly(3).times
 
       post :enter_post,
            :jobs => [{ "employer" => "BogoMIPS", "title" => "Yahoo"},
@@ -50,7 +57,6 @@ describe JobsController do
                      { "title" => "Senior Vice-Chancellor"},
                      { }
                     ]
-      # TODO: verify that items are added
     end
 
     it "should redirect to the answer-questions page" do
