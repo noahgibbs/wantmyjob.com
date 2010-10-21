@@ -1,11 +1,11 @@
 Release 1, MVP:
 
-  - Answer questions
   - Give basic match based on questions
 
 Testing Before Release 1:
 
-  - Make sure saving multiple jobs sets the profile ID correctly
+  - Make sure company questions and perfect company questions can be
+    answered correctly and the correct values written to the DB
 
 Testing/Prototyping:
 
@@ -15,7 +15,6 @@ Testing/Prototyping:
 Important, but Not Release 1:
 
   - Cucumber tests
-  - RSpec tests
 
 Usability:
 
