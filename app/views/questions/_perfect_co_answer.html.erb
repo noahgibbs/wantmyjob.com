@@ -1,16 +1,16 @@
 <%= @question.text_for(@co_name) %>
 
-<p></p>
+<p class="secondary">Choose one or more 'perfect' answers.</p>
 
 <% @answers.each_with_index do |answer, idx| %>
-  <%= check_box_tag("answer[data1]", value = (1 << idx).to_s) %>
+  <%= check_box_tag("answer[data1_#{idx+1}]", value = (1 << idx).to_s) %>
   <%= answer.text %> <br/>
 <% end %>
 
 <p> And how important is that to you? </p>
 
 <div>
-  <%= radio_button_tag("answer[data2]", "1") %> Not at all <br/>
+  <%= radio_button_tag("answer[data2]", "1") %> Not at all important <br/>
   <%= radio_button_tag("answer[data2]", "2") %> Somewhat important <br/>
   <%= radio_button_tag("answer[data2]", "3") %> Very important <br/>
   <%= radio_button_tag("answer[data2]", "4") %> Absolutely Required

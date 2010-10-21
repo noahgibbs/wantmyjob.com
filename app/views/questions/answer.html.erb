@@ -2,14 +2,14 @@
 
   <h1> Improve Your Recommendations </h1>
 
-  <%= form_tag do %>
+  <%= form_tag(:action => :answer_post) do %>
     <%= hidden_field_tag "answer[answer_type]", @answer_type %>
     <%= hidden_field_tag "answer[question_id]", @question.id %>
     <%= hidden_field_tag "answer[profile_id]", current_user.profile.id %>
     <%= hidden_field_tag "answer[job_id]", @question_job %>
     <%= render :partial => @template %>
 
-    <%= submit_tag "Answer" %>
+    <%= submit_tag "Answer" %> or <%= submit_tag "Skip this Question" %>
   <% end %>
 
 </div>

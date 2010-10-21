@@ -1,6 +1,6 @@
 <%= @question.text_for(@co_name) %>
 
-<p></p>
+<p class="secondary">Choose the best answer below.</p>
 
 <% @answers.each_with_index do |answer, index| %>
   <%= radio_button_tag("answer[data1]", index) %> <%= answer.text %> <br/>
