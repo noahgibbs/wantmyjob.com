@@ -1,5 +1,3 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
 Factory.define :job do |j|
   j.title "Master of Ceremonies"
   j.start_date Time.parse("July 3, 1991")
