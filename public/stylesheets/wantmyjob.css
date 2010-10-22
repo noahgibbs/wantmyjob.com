@@ -15,6 +15,7 @@ h1 {
 }
 
 .spaced_container {
+  max-width: 800px;
   margin: 11.111%;
 }
 
