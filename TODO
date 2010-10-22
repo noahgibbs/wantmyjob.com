@@ -1,18 +1,28 @@
 Release 1, MVP:
 
-  - Give basic match based on questions
+  - Usefully view your own profile
+  - Redirect to "enter questions" at sensible times
+  - Calculate basic match based on questions
+  - Inform user of matching jobs at some reasonable times
 
 Testing Before Release 1:
 
   - Make sure company questions and perfect company questions can be
     answered correctly and the correct values written to the DB
 
+Monitoring:
+  - Daily RSS feed of vital info like total users, logins & questions, etc.
+  - App console with the same info, and exceptions
+
+Auditing:
+  - vestal_versions, notes on why a modification happened
+
 Testing/Prototyping:
 
   - Add toggle to show or not show demo profiles for matches
   - Enter a bunch of demo profiles for matches
 
-Important, but Not Release 1:
+Important, but probably not release 1:
 
   - Cucumber tests
 
@@ -23,5 +33,7 @@ Usability:
 
 Formatting and Prettiness:
 
+  - Custom 404 page
+  - Pretty up various devise and registration views
   - Add an "about" link
   - Add a "privacy" link
