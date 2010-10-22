@@ -4,8 +4,9 @@ class Profile < ActiveRecord::Base
 
   def next_question
     my_jobs = jobs
-    questions = Question.verified.random_order.limit(5)
-    answers = Answer.where(:question_id => questions.map(&:id),
+    question_ids = Question.verified.select(:id).map(&:id).sample(5)
+    questions = Question.find(question_ids)
+    answers = Answer.where(:question_id => question_ids,
                            :job_id => (my_jobs.map(&:id) + [nil]))
 
     co_answers = answers.select {|a| a.answer_type == Answer::COMPANY_ANSWER}
@@ -21,8 +22,6 @@ class Profile < ActiveRecord::Base
     pc_chances = n_questions - n_pc_answers
 
     co_odds = (0.0 + co_chances) / (0.0 + co_chances + pc_chances)
-
-    #print "Odds:  Company: #{co_chances}, Perfect: #{pc_chances}, Calc: #{co_odds}\n\n\n"
 
     use_perfect = rand() > co_odds
 
@@ -40,7 +39,7 @@ class Profile < ActiveRecord::Base
       questions.each {|q| jobs.each {|j| all_pairs << [q.id, j.id]}}
 
       question_pair = (all_pairs - used_pairs).sample
-      raise "No questions!" if(!question_pair || question_pair == [])
+      return [nil, nil, nil] if(!question_pair || question_pair == [])
       question = Question.find(question_pair[0])
       answer_type = Answer::COMPANY_ANSWER
       job = Job.find(question_pair[1])

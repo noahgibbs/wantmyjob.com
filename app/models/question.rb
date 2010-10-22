@@ -20,7 +20,6 @@ class Question < ActiveRecord::Base
   # or about your perfect company to work for.
   EMPLOYER_QUESTION = 1
 
-  scope :random_order, order("RAND()")
   scope :verified, where(:verified => true, :completed => true,
                          :soft_deleted => false)
 
