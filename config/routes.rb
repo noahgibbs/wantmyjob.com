@@ -29,10 +29,7 @@ Wantmyjob::Application.routes.draw do
     end
   end
 
-  devise_for :users, :controllers => {:registrations => "registrations"} do
-    get "/login" => "devise/sessions#new"
-    get "/logout" => "devise/sessions#destroy"
-  end
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   # Landing page on login
   match '/home/portal' => 'home#portal', :as => 'user_root'
