@@ -6,4 +6,6 @@ class ApplicationController < ActionController::Base
   def requires_admin
     redirect_to "/" unless current_user.admin
   end
+
+  filter_parameter_logging :password
 end
