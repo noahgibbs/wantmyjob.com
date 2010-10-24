@@ -38,6 +38,7 @@ end
 # Test-only gems
 group :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem "database_cleaner"
 end
 
 # Dev-and-test gems -- usually for test-environment tools that
