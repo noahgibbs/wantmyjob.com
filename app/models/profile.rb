@@ -2,18 +2,22 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :jobs
 
-  def next_question
-    my_jobs = jobs
-    question_ids = Question.verified.select(:id).map(&:id).sample(5)
+  # This should be protected.  According to the RSpec mailing list,
+  # I should probably be factoring this out into a separate public
+  # class and testing it that way.  Sounds really ugly.
+  def next_question_odds(options = {:samples => 5})
+    all_question_ids = Question.verified.select(:id).map(&:id)
+    return [nil, nil, nil] if !all_question_ids || all_question_ids.empty?
+    question_ids = all_question_ids.sample(options[:samples])
     questions = Question.find(question_ids)
     answers = Answer.where(:question_id => question_ids,
-                           :job_id => (my_jobs.map(&:id) + [nil]))
+                           :profile_id => self.id)
 
     co_answers = answers.select {|a| a.answer_type == Answer::COMPANY_ANSWER}
     n_questions = questions.count
     n_pc_answers = answers.size - co_answers.size
 
-    # There should be 5 * (1 + num_jobs) total possible answers here.
+    # There should be samples * (1 + num_jobs) total possible answers here.
     # We want to randomize proportionally to the non-answered stuff.
     # So every combination with no answer is a 'chance', and we count
     # perfect-company chances and regular-company chances.
@@ -22,6 +26,14 @@ class Profile < ActiveRecord::Base
     pc_chances = n_questions - n_pc_answers
 
     co_odds = (0.0 + co_chances) / (0.0 + co_chances + pc_chances)
+
+    [questions, answers, co_odds]
+  end
+
+  def next_question(options = {:samples => 5})
+    questions, answers, co_odds = next_question_odds(options)
+    return [nil, nil, nil] if co_odds == nil
+    co_answers = answers.select {|a| a.answer_type == Answer::COMPANY_ANSWER}
 
     use_perfect = rand() > co_odds
 
