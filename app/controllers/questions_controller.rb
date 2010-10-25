@@ -20,6 +20,9 @@ class QuestionsController < ApplicationController
 
   def answer
     next_question, @answer_type, @question_job = current_user.profile.next_question
+
+    redirect_to(:action => :enter) if next_question == nil
+
     @question = next_question
     @answers = next_question.question_answers.order("id ASC")
     if @answer_type == Answer::PERFECT_COMPANY_ANSWER
@@ -66,7 +69,7 @@ class QuestionsController < ApplicationController
     ActiveRecord::Base.transaction do
       q.save!  # Transaction because this saves all answers
     end
-    redirect_to questions_path
+    redirect_to :controller => :home, :action => :portal
   end
 
   # Action to verify questions, checked from the index view
