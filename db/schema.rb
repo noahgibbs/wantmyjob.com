@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101021090747) do
+ActiveRecord::Schema.define(:version => 20101024231644) do
 
   create_table "answers", :force => true do |t|
     t.integer "job_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20101021090747) do
     t.integer "data2",       :default => 0, :null => false
     t.integer "data3",       :default => 0, :null => false
     t.integer "data4",       :default => 0, :null => false
-    t.integer "profile_id",  :default => 0, :null => false
+    t.integer "profile_id",                 :null => false
   end
 
   create_table "companies", :force => true do |t|
