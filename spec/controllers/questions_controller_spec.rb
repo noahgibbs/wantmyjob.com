@@ -1,23 +1,10 @@
 require 'spec_helper'
-require 'devise/test_helpers'
 
 describe QuestionsController do
-  include Devise::TestHelpers
-
-  before(:each) do
-    # mock up an authentication in the underlying warden library
-    request.env['warden'] = mock(Warden, :authenticate => mock_user,
-                                 :authenticate! => mock_user)
-  end
-
-  def mock_user(stubs={})
-    @mock_user ||= mock_model(User, stubs).as_null_object
-  end
+  include AppSpecHelpers
 
   def mock_question(stubs={})
-    (@mock_question ||= mock_model(Question).as_null_object).tap do |question|
-      question.stub(stubs) unless stubs.empty?
-    end
+    mock_ar_object("question", stubs)
   end
 
   describe "GET enter" do
