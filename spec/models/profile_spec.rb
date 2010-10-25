@@ -93,4 +93,19 @@ describe "a profile with two jobs" do
     end
   end
 
+  context "and one question and a company answer" do
+    let(:question) { Factory.create(:question) }
+    let(:answer) { Factory.create(:answer, :question_id => question.id,
+                                 :answer_type => Answer::COMPANY_ANSWER,
+                                  :profile_id => subject.id,
+                                  :job_id => subject.jobs[0].id,
+                                  :data1 => 7, :data2 => 155) }
+
+    it "should have 50% odds of a company-answer next" do
+      question; answer
+      qs, as, odds = subject.next_question_odds
+      (odds - 0.5).abs.should <= 0.0001
+    end
+
+  end
 end
