@@ -67,7 +67,8 @@ class AnswersController < ApplicationController
   def destroy
     @answer = Answer.find(params[:id])
     @answer.destroy
+    flash[:notice] = "Destroyed 1 answer"
 
-    respond_with @answer
+    redirect_to :action => :index
   end
 end
