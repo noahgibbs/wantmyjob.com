@@ -83,6 +83,8 @@ class QuestionsController < ApplicationController
     ActiveRecord::Base.transaction do
       q.save!  # Transaction because this saves all answers
     end
+    flash[:notice] = "Your question has been submitted.  After a moderator " +
+      "checks it, it will be added to the site."
     redirect_to :controller => :home, :action => :portal
   end
 
