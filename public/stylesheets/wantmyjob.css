@@ -19,6 +19,26 @@ h1 {
   margin: 11.111%;
 }
 
+.flash_notice, .flash_error, .flash_warning {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+.flash_notice {
+  background-color: #E8FFE8;
+  border: solid 1px #6C6;
+}
+
+.flash_warning {
+  background-color: #DD9A24;
+  border: solid 1px #DD9A24;
+}
+
+.flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
 .menu_bar {
   color: #304028;
   background-color: #8080FF;
