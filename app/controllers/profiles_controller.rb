@@ -2,6 +2,12 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
 
+  expose(:profile)
+
+  def me
+    params[:id] = current_user.profile.id
+  end
+
   # GET /profiles
   # GET /profiles.xml
   def index

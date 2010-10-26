@@ -1,0 +1,53 @@
+<% title "My Profile" %>
+
+<div class="spaced_container">
+  <h1> <%= profile.fullname %> </h1>
+
+  <p>
+    Right now, this profile is private.  Eventually, some of your
+    information will be visible to other site users.
+  </p>
+
+  <p>
+    <b>Birth day:</b>
+    <%= profile.birth_day %>
+  </p>
+
+  <p>
+    <b>Birth month:</b>
+    <%= profile.birth_month %>
+  </p>
+
+  <p>
+    <b>Birth year:</b>
+    <%= profile.birth_year %>
+  </p>
+
+  <p>
+    <b>Gender:</b>
+    <%= profile.gender %>
+  </p>
+
+  <p>
+    <b>Time zone:</b>
+    <%= profile.time_zone %>
+  </p>
+
+  <p>
+    <b>Address:</b>
+    <%= profile.address %>
+  </p>
+
+  <p>
+    <b>Country:</b>
+    <%= profile.country %>
+  </p>
+
+  <p>
+    <b>State:</b>
+    <%= profile.state %>
+  </p>
+
+  <%= button_to("Edit Personal Info", {:action => :edit, :id => profile.id},
+                :method => :get) %>
+</div>

@@ -12,7 +12,11 @@ Wantmyjob::Application.routes.draw do
 
   resources :statistics
 
-  resources :profiles
+  resources :profiles do
+    collection do
+      get :me
+    end
+  end
 
   resources :question_answers
 
