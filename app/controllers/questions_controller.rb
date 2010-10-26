@@ -77,8 +77,17 @@ class QuestionsController < ApplicationController
 
   # Action to verify questions, checked from the index view
   def verify_questions
-    raise "Unimplemented!"
+    pq = params[:question]
+    num_saved = 0
+    pq.keys.each do |idx|
+      q = Question.find(idx)
+      next unless pq[idx][:verified] == "1"
+      q.verified = true
+      q.save!
+      num_saved += 1
+    end
 
+    flash[:notice] = "Verified #{num_saved} questions successfully."
     redirect_to :action => :index
   end
 
