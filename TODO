@@ -1,14 +1,8 @@
 Release 1, MVP:
 
   - Usefully view your own profile
-  - Redirect to "enter questions" at sensible times
   - Calculate basic match based on questions
   - Inform user of matching jobs at some reasonable times
-
-Testing Before Release 1:
-
-  - Make sure company questions and perfect company questions can be
-    answered correctly and the correct values written to the DB
 
 Monitoring:
   - Daily RSS feed of vital info like total users, logins & questions, etc.
