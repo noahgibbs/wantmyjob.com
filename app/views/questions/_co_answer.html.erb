@@ -3,5 +3,5 @@
 <p class="secondary">Choose the best answer below.</p>
 
 <% @answers.each_with_index do |answer, index| %>
-  <%= radio_button_tag("answer[data1]", index) %> <%= answer.text %> <br/>
+  <%= radio_button_tag("answer[data1]", index + 1) %> <%= answer.text %> <br/>
 <% end %>
