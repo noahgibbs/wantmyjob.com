@@ -44,8 +44,13 @@ class QuestionsController < ApplicationController
     pa = params[:answer]
 
     if params[:commit] =~ /skip/i
+      pa.keys.each do |key|
+        if key =~ /^data\d(_\d)?$/
+          pa.delete key
+        end
+      end
+
       a = Answer.new pa
-      a.data1 = a.data2 = a.data3 = a.data4 = nil
       a.save!
 
       redirect_to :controller => :home, :action => :portal
