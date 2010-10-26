@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   end
 
   def answer
-    next_question, @answer_type, @question_job = current_user.profile.next_question
+    next_question, @answer_type, question_job = current_user.profile.next_question
 
     if next_question == nil
       redirect_to(:action => :enter)
@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
       @template = "perfect_co_answer"
       @co_name = "your perfect job"
     elsif @answer_type == Answer::COMPANY_ANSWER
-      @job = @question_job
+      @job = question_job
       @template = "co_answer"
       @co_name = @job.employer
     else
