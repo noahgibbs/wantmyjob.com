@@ -21,7 +21,10 @@ class QuestionsController < ApplicationController
   def answer
     next_question, @answer_type, @question_job = current_user.profile.next_question
 
-    redirect_to(:action => :enter) if next_question == nil
+    if next_question == nil
+      redirect_to(:action => :enter)
+      return
+    end
 
     @question = next_question
     @answers = next_question.question_answers.order("id ASC")
