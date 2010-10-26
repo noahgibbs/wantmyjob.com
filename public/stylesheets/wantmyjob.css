@@ -148,6 +148,46 @@ h1 {
   font-size: 125%;
 }
 
+.improve_button {
+  display: inline;
+  font-size: 90%;
+  color: #304028;
+  background-color: #8080FF;
+  border: solid 1px #22F;
+  text-shadow: 0.1em 0.1em 0.1em #9E948A;
+  -moz-border-radius:0.5em;
+  -webkit-border-radius:0.5em;
+  padding: 0.2em;
+}
+
+.improve_button a {
+  text-decoration: none;
+}
+
+.improve_button a:hover {
+  text-decoration: none;
+}
+
+.suggest_button {
+  display: inline;
+  font-size: 90%;
+  color: #304028;
+  background-color: #8080FF;
+  border: solid 1px #22F;
+  text-shadow: 0.1em 0.1em 0.1em #9E948A;
+  -moz-border-radius:0.5em;
+  -webkit-border-radius:0.5em;
+  padding: 0.2em;
+}
+
+.suggest_button a {
+  text-decoration: none;
+}
+
+.suggest_button a:hover {
+  text-decoration: none;
+}
+
 .center {
   text-align: center;
 }

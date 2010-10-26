@@ -5,6 +5,14 @@
     <%= render :partial => "home/smalllogo" %>
   <% end %>
 
+  <% if current_user %>
+    &nbsp; &nbsp; &nbsp;
+    <%= link_to(content_tag('div', 'Improve', :class => 'improve_button'),
+                :controller => :home, :action => :portal) %>
+    <%= link_to(content_tag('div', 'Suggest', :class => 'suggest_button'),
+                :controller => :home, :action => :suggest) %>
+  <% end %>
+
   <div class="floatright">
     <%= link_to("About WMJ", "/about") %> &nbsp; &nbsp;
     <%= link_to("Privacy", "/privacy") %> &nbsp; &nbsp;

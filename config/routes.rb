@@ -38,6 +38,9 @@ Wantmyjob::Application.routes.draw do
   # Landing page on login
   match '/home/portal' => 'home#portal', :as => 'user_root'
 
+  # Random one-off matches
+  match '/home/suggest' => 'home#suggest'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
