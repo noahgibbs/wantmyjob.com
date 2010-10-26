@@ -42,6 +42,17 @@ class QuestionsController < ApplicationController
 
   def answer_post
     pa = params[:answer]
+
+    if params[:commit] =~ /skip/i
+      a = Answer.new pa
+      a.data1 = a.data2 = a.data3 = a.data4 = nil
+      a.save!
+
+      redirect_to :controller => :home, :action => :portal
+
+      return
+    end
+
     # Combine virtual sub-attributes
     (1..Answer::NUM_DATA_FIELDS).each do |data_idx|
       # nil and the empty string both become 0

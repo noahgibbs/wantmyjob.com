@@ -1,9 +1,8 @@
 Release 1, MVP:
 
-  - Usefully view your own profile
   - Calculate basic match based on questions
   - Inform user of matching jobs at some reasonable times
-  - Skip questions
+  - Usefully view your own profile
 
 Monitoring:
   - Daily RSS feed of vital info like total users, logins & questions, etc.
