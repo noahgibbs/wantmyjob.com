@@ -28,6 +28,7 @@ Usability:
 Formatting and Prettiness:
 
   - Custom 404 page
-  - Pretty up various devise and registration views
+  - Trim invalid links from various devise and registration views
   - Add an "about" link
   - Add a "privacy" link
+  - Pretty up scaffolding views for profiles, answers, questions, etc
