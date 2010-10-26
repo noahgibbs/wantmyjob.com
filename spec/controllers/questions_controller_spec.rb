@@ -50,6 +50,21 @@ describe QuestionsController do
                      :answer_type => 1, :question_id => 4, :job_id => 6 }
       should redirect_to(:controller => :home, :action => :portal)
     end
+
+    it "works properly with sub-keys and bad data" do
+      ans = mock_model(Answer)
+      Answer.should_receive(:new).once.with("data1" => 0, "data2" => 37,
+          "data3" => 0, "data4" => 0, "profile_id" => 7,
+          "answer_type" => 1, "question_id" => 4,
+          "job_id" => 6).and_return(ans)
+      ans.should_receive(:save!).once
+      post :answer_post,
+        :answer => { :data1 => "ab", :data2_1 => "11", :data2_2 => "7",
+                     :data2_7 => "19", :data3 => nil,
+                     :data4 => "0", :profile_id => 7,
+                     :answer_type => 1, :question_id => 4, :job_id => 6 }
+      should redirect_to(:controller => :home, :action => :portal)
+    end
   end
 
 end
