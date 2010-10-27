@@ -1,15 +1,8 @@
 Release 1, MVP:
 
-  - Calculate basic match based on questions
   - Inform user of matching jobs at some reasonable times
   - Usefully view your own profile
-
-First Match Type:
-
-  - For every profile, for every job, calculate goodness of match
-  - Put matches into rows with the model UtterlyNaiveMatch
-  - Each UtterlyNaiveMatch row will contain a goodness-of-match rating
-    (int?) along with the profile_id and job_id that it matches
+  - Specs for UtterlyNaiveMatch calculations
 
 Monitoring:
   - Daily RSS feed of vital info like total users, logins & questions, etc.
@@ -17,6 +10,9 @@ Monitoring:
 
 Auditing:
   - vestal_versions, notes on why a modification happened
+
+Possible Match Solution:
+  - start counting karma points, use them up to get job evaluations
 
 Testing/Prototyping:
 
