@@ -60,9 +60,9 @@ class UtterlyNaiveMatch < ActiveRecord::Base
       total_importance += importance
 
       # See if that answer was checked
-      if((1 << (answer - 1)) & p_map[q_id].data1) {
+      if((1 << (answer - 1)) & p_map[q_id].data1)
         total_match += importance
-      }
+      end
     end
 
     # Return an attributes hash
