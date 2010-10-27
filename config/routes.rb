@@ -40,6 +40,8 @@ Wantmyjob::Application.routes.draw do
 
   # Random one-off matches
   match '/home/suggest' => 'home#suggest'
+  match '/about' => 'home#about'
+  match '/privacy' => 'home#privacy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
