@@ -7,10 +7,14 @@
 
   <% if current_user %>
     &nbsp; &nbsp; &nbsp;
-    <%= link_to(content_tag('div', 'Improve', :class => 'improve_button'),
-                :controller => :home, :action => :portal) %>
-    <%= link_to(content_tag('div', 'Suggest', :class => 'suggest_button'),
-                :controller => :home, :action => :suggest) %>
+    <%= link_to(content_tag('div', 'Improve',
+                            :class => 'improve_button shadow'),
+                {:controller => :home, :action => :portal},
+                :title => "Improve your recommendations!") %>
+    <%= link_to(content_tag('div', 'Suggest',
+                            :class => 'suggest_button shadow'),
+                {:controller => :home, :action => :suggest},
+                :title => "Suggest matching jobs!") %>
   <% end %>
 
   <div class="floatright">
