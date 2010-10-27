@@ -4,6 +4,7 @@ body {
   color: #503E2B;
   background-color: #FFFFF0;
   font-family: 'Vollkorn', arial, serif;
+  line-height: 150%;
 }
 
 h1 {
@@ -212,4 +213,20 @@ h1 {
 
 .nodisplay {
   display: none;
+}
+
+.submit_button {
+  margin-left: 5em;
+  margin-top: 2em;
+  font-size: 125%;
+
+  text-shadow: 0.1em 0.1em 0.1em #88f;
+
+  -moz-box-shadow: 3px 3px 4px #303050;
+  -webkit-box-shadow: 3px 3px 4px #303050;
+  box-shadow: 3px 3px 4px #303050;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#040408')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#040408');
 }

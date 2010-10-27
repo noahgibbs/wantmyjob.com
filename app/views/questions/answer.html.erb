@@ -9,7 +9,8 @@
     <%= hidden_field_tag "answer[job_id]", @job.id %>
     <%= render :partial => @template %>
 
-    <%= submit_tag "Answer" %> or <%= submit_tag "Skip this Question" %>
+    <%= submit_tag "Answer", :class => :submit_button %>
+    or <%= submit_tag "Skip this Question", :class => :submit_button %>
   <% end %>
 
 </div>
