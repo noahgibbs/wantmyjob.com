@@ -16,12 +16,19 @@ class UtterlyNaiveMatch < ActiveRecord::Base
                              order("question_id ASC")
         goodness_of_match = self.perfect_co_match_answers(perfect_answers,
                                                           job_answers)
-        m = UtterlyNaiveMatch.new(:profile_id => p.id, :job_id => j.id,
-                                  :howgood => goodness_of_match)
+        m = UtterlyNaiveMatch.new({:profile_id => p.id, :job_id => j.id}.
+                                  merge(goodness_of_match))
         m.save!
       end
     end
   end
+
+  IMPORTANCE = {
+    1 => 0,  # Not at all
+    2 => 1,  # Somewhat
+    3 => 3,  # Very
+    4 => 12  # Required
+  }
 
   def self.perfect_co_match_answers(p_answers, j_answers)
     p_map = {}
@@ -34,8 +41,19 @@ class UtterlyNaiveMatch < ActiveRecord::Base
     all_q_ids.each do |q_id|
       next unless p_map[q_id] && j_map[q_id]
 
-      
+      importance = IMPORTANCE[p_map[q_id].data2]
+      total_importance += importance
+      answer = j_map[q_id].data1
+
+      # See if that answer was checked
+      if((1 << (answer - 1)) & p_map[q_id].data1) {
+        total_match += importance
+      }
     end
+
+    # Return an attributes hash
+    { :matching => total_match, :match_out_of => total_importance,
+      :question_overlap => all_q_ids.length}
   end
 
 end

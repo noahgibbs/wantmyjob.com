@@ -119,7 +119,9 @@ ActiveRecord::Schema.define(:version => 20101027062552) do
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
   create_table "utterly_naive_matches", :force => true do |t|
-    t.integer  "howgood"
+    t.integer  "matching"
+    t.integer  "match_out_of"
+    t.integer  "question_overlap"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
