@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101026222112) do
+ActiveRecord::Schema.define(:version => 20101027062552) do
 
   create_table "answers", :force => true do |t|
     t.integer "job_id"
@@ -117,6 +117,12 @@ ActiveRecord::Schema.define(:version => 20101026222112) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "utterly_naive_matches", :force => true do |t|
+    t.integer  "howgood"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "work_sites", :force => true do |t|
     t.string   "company_name", :limit => 200
