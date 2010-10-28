@@ -11,6 +11,8 @@ gem 'decent_exposure', '~>1.0.0.rc1'
 
 gem "devise", '~>1.1.2'
 
+gem "delayed_job"
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
