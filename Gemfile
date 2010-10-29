@@ -11,7 +11,7 @@ gem 'decent_exposure', '~>1.0.0.rc1'
 
 gem "devise", '~>1.1.2'
 
-gem "delayed_job"
+gem "delayed_job", :git => 'git://github.com/collectiveidea/delayed_job.git'
 
 # Deploy with Capistrano
 # gem 'capistrano'
