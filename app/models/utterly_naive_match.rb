@@ -49,6 +49,8 @@ class UtterlyNaiveMatch < ActiveRecord::Base
     j_map = {}
     j_answers.each {|a| j_map[a.question_id] = a}
 
+    total_match = total_importance = 0
+
     all_q_ids = (p_map.keys + j_map.keys).uniq
     skipped_ids = []
 
