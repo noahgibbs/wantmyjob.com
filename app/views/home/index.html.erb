@@ -28,14 +28,11 @@
   <div class="info_block">
     <span class="emphatic">Some jobs we know about:</span>
 
-    <div class="company inset">
-      <span class="primary">Broadcom</span>
-        <span class="secondary">Software Engineer</span>
-    </div>
-
-    <div class="company inset">
-      <span class="primary">NVidia</span>
-        <span class="secondary">Software Engineer</li>
-    </div>
+    <% @jobs.each do |job| %>
+      <div class="company inset">
+        <span class="primary"><%= job.employer %></span>
+          <span class="secondary"><%= job.title %></span>
+      </div>
+    <% end %>
   </div>
 </div>

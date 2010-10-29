@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @big_logo = true
+    @jobs = Job.limit(5)
   end
 
   # Where to next on the site...
