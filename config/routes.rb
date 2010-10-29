@@ -1,5 +1,9 @@
 Wantmyjob::Application.routes.draw do
-  resources :answers
+  resources :answers do
+    collection do
+      post :match_all_profiles
+    end
+  end
 
   resources :work_sites
 

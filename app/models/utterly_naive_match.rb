@@ -3,16 +3,21 @@ class UtterlyNaiveMatch < ActiveRecord::Base
   def self.create_matches_for(profiles = :all, jobs = :all)
     jobs = Job.all if jobs == :all
 
+    delete_hash = {}
+
     if profiles == :all
       profiles = Profile.all
-      UtterlyNaiveMatch.delete_all
     else
-      # If I try to use this with only selected profiles, this may
-      # utterly overload the database's IN() functionality.  So
-      # this will probably get rewritten when I try to scale it.
-      UtterlyNaiveMatch.where(:profile_id => profiles.map(&:id),
-                              :job_id => jobs.map(&:id)).delete_all
+      delete_hash.merge!(:profile_id => profiles.map(&:id))
     end
+
+    if jobs == :all
+      jobs = Job.all
+    else
+      delete_hash.merge!(:job_id => jobs.map(&:id))
+    end
+
+    UtterlyNaiveMatch.where(delete_hash).delete_all
 
     profiles.each do |p|
       perfect_answers = Answer.where(:profile_id => p.id,

@@ -1,6 +1,11 @@
 class AnswersController < ApplicationController
   respond_to :html
 
+  def match_all_profiles
+    UtterlyNaiveMatch.create_matches_for :all
+    redirect_to :action => :index
+  end
+
   # GET /answers
   # GET /answers.xml
   def index
