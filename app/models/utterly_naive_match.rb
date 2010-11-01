@@ -1,4 +1,6 @@
 class UtterlyNaiveMatch < ActiveRecord::Base
+  belongs_to :job
+  belongs_to :profile
 
   def self.create_matches_for(profiles = :all, jobs = :all)
     jobs = Job.all if jobs == :all
@@ -106,7 +108,7 @@ class UtterlyNaiveMatch < ActiveRecord::Base
   # a by-question confidence, with how wide the interval was.  This is
   # not that matching algorithm, though that one would rock.
   def match_confidence
-    self.wilson_score(self.matching, self.match_out_of, 0.05)
+    UtterlyNaiveMatch.wilson_score(self.matching, self.match_out_of, 0.05)
   end
 
 end
