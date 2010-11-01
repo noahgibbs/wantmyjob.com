@@ -1,7 +1,10 @@
 Release 1, MVP:
 
   - Allow users to match with jobs every hour or so, by pushing a button
+    - Prevent doing it constantly
   - Usefully view matches
+    - Pretty up view
+    - Express quality of match
   - Specs for UtterlyNaiveMatch calculations
   - Test with well over five questions
 
@@ -27,6 +30,7 @@ Usability:
 
   - When entering jobs, set start_date on following row to end_date just
     entered, unless that date has been changed manually at some point
+  - Cut down on the number of redirects
 
 Formatting and Prettiness:
 
