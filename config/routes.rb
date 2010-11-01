@@ -20,6 +20,11 @@ Wantmyjob::Application.routes.draw do
     collection do
       get :me
     end
+    member do
+      post :clear_matches
+      get :show_matches
+      post :recalculate_matches
+    end
   end
 
   resources :question_answers
