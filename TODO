@@ -1,14 +1,16 @@
 Release 1, MVP:
 
   - Allow users to match with jobs every hour or so, by pushing a button
+  - Usefully view matches
   - Specs for UtterlyNaiveMatch calculations
+  - Test with well over five questions
 
 Monitoring:
   - Daily RSS feed of vital info like total users, logins & questions, etc.
   - App console with the same info, and exceptions
 
 Auditing:
-  - paper_trail, notes on why a modification happened
+  - turn on paper_trail
 
 Testing/Prototyping:
 
@@ -19,6 +21,7 @@ Important, but probably not release 1:
 
   - Cucumber tests
   - Karma points
+  - Use delayed_job for updating matches
 
 Usability:
 
