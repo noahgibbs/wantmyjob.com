@@ -4,7 +4,6 @@ Release 1, MVP:
     - Prevent doing it constantly
   - Usefully view matches
     - Pretty up view
-    - Express quality of match
   - Specs for UtterlyNaiveMatch calculations
   - Test with well over five questions
 
