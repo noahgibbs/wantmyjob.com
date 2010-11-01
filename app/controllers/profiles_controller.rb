@@ -15,8 +15,8 @@ class ProfilesController < ApplicationController
 
   def show_matches
     all_matches = UtterlyNaiveMatch.where(:profile_id => current_user.profile.id)
-    # Order the matches appropriately
-    @matches = all_matches.sort_by {|match| match.match_confidence}
+    # Order the matches appropriately (by match_confidence, descending)
+    @matches = all_matches.sort_by {|match| -match.match_confidence}
   end
 
   def recalculate_matches
