@@ -6,13 +6,11 @@ gem 'rails', '3.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
 gem 'decent_exposure', '~>1.0.0.rc1'
-
 gem "devise", '~>1.1.2'
-
 gem "delayed_job", :git => 'git://github.com/collectiveidea/delayed_job.git'
 gem "paper_trail"
+gem "statistics2"
 
 # Deploy with Capistrano
 # gem 'capistrano'
