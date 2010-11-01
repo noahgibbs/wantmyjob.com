@@ -83,6 +83,9 @@ GEM
       gem_plugin (>= 0.2.3)
     mysql2 (0.2.4)
     nokogiri (1.4.3.1)
+    paper_trail (1.6.3)
+      actionpack (>= 2.3)
+      activerecord (>= 2.3)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -143,6 +146,7 @@ DEPENDENCIES
   factory_girl_rails
   mongrel
   mysql2
+  paper_trail
   rails (= 3.0.0)
   rails3-generators
   rspec-rails (~> 2.0.0.beta.22)
