@@ -77,4 +77,36 @@ class UtterlyNaiveMatch < ActiveRecord::Base
       :question_overlap => all_q_ids.length - skipped_ids.length}
   end
 
+  # Pos is the number of positive (true) ratings
+  # N is the total number of ratings
+  # Power is the statistical power - 0.10 for 95% chance, 0.05 for 97.5%, etc
+  #
+  # This is the wilson score confidence interval (lower bound) for a given
+  # number of samples, proportion of samples and statistical power.
+  #
+  # Based on http://www.evanmiller.org/how-not-to-sort-by-average-rating.html
+  #
+  # TODO: move this to some kind of utility module
+  def self.wilson_score(pos, n, power)
+    return 0.0 if n == 0
+
+    z = Statistics2.pnormaldist(1.0 - power/2.0)
+    phat = 1.0 * pos / n
+
+    divisor = (1 + z * z / n)
+    center = phat + z * z / (2 * n)
+    radius = z * Math.sqrt((phat * (1 - phat) + z * z / (4 * n)) / n)
+
+    # This is lower bound.  Change - to + for upper bound
+    (center - radius) / divisor
+  end
+
+  # This is how confident we are of a good match based on simple criteria
+  # for answers.  A better match would take the min *and* max and get
+  # a by-question confidence, with how wide the interval was.  This is
+  # not that matching algorithm, though that one would rock.
+  def match_confidence
+    self.wilson_score(self.matching, self.match_out_of, 0.05)
+  end
+
 end
