@@ -5,6 +5,8 @@
 <%= button_to("Clear Your Matches", :controller => :profiles,
               :action => :recalculate_matches) %>
 
-<% @matches.each do |match| %>
-
-<% end %>
+<ul>
+  <% @matches.each do |match| %>
+    <li> <%= match.job.employer %> / <%= match.job.title %> </li>
+  <% end %>
+</ul>

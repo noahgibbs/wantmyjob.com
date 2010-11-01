@@ -25,4 +25,8 @@ class HomeController < ApplicationController
     # Assume there are still questions to answer
     redirect_to :controller => :questions, :action => :answer
   end
+
+  def suggest
+    redirect_to :controller => :profiles, :action => :show_matches
+  end
 end
