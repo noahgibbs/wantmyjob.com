@@ -8,6 +8,22 @@ class ProfilesController < ApplicationController
     params[:id] = current_user.profile.id
   end
 
+  def clear_matches
+    UtterlyNaiveMatch.where(current_user.profile.id).delete_all
+    redirect_to :controller => :home, :action => :suggest
+  end
+
+  def show_matches
+    all_matches = UtterlyNaiveMatch.where(:profile_id => current_user.profile.id)
+    # Order the matches appropriately
+    @matches = all_matches.sort_by {|match| match.match_confidence}
+  end
+
+  def recalculate_matches
+    UtterlyNaiveMatch.create_matches_for current_user.profile
+    redirect_to :controller => :home, :action => :suggest
+  end
+
   # GET /profiles
   # GET /profiles.xml
   def index

@@ -1,0 +1,10 @@
+<h1> Show Your Top Matches </h1>
+
+<%= button_to("Recalculate Your Matches", :controller => :profiles,
+              :action => :recalculate_matches) %>
+<%= button_to("Clear Your Matches", :controller => :profiles,
+              :action => :recalculate_matches) %>
+
+<% @matches.each do |match| %>
+
+<% end %>
