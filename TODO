@@ -1,7 +1,6 @@
 Release 1, MVP:
 
-  - Inform user of matching jobs at some reasonable times
-  - Usefully view your own profile
+  - Allow users to match with jobs every hour or so, by pushing a button
   - Specs for UtterlyNaiveMatch calculations
 
 Monitoring:
@@ -9,10 +8,7 @@ Monitoring:
   - App console with the same info, and exceptions
 
 Auditing:
-  - vestal_versions, notes on why a modification happened
-
-Possible Match Solution:
-  - start counting karma points, use them up to get job evaluations
+  - paper_trail, notes on why a modification happened
 
 Testing/Prototyping:
 
@@ -22,6 +18,7 @@ Testing/Prototyping:
 Important, but probably not release 1:
 
   - Cucumber tests
+  - Karma points
 
 Usability:
 
@@ -32,6 +29,3 @@ Formatting and Prettiness:
 
   - Custom 404 page
   - Trim invalid links from various devise and registration views
-  - Add an "about" link
-  - Add a "privacy" link
-  - Pretty up scaffolding views for profiles, answers, questions, etc
