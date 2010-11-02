@@ -3,6 +3,8 @@ class UtterlyNaiveMatch < ActiveRecord::Base
   belongs_to :profile
 
   def self.create_matches_for(profiles = :all, jobs = :all)
+    profiles = [profiles] if profiles.kind_of? Profile
+    jobs = [jobs] if jobs.kind_of? Job
     jobs = Job.all if jobs == :all
 
     delete_hash = {}
