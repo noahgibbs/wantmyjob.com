@@ -50,7 +50,9 @@ Wantmyjob::Application.routes.draw do
   match '/about' => 'home#about'
   match '/privacy' => 'home#privacy'
 
-  match '/statsfeed' => 'home#statsfeed', :format => :atom
+  scope '/statsfeed' do
+    resources :notes, :actions => [:index]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

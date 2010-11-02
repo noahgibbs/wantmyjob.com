@@ -1,0 +1,11 @@
+<h1> Overall Site Statistics </h1>
+
+<% @notes.each do |note| %>
+  <a name="note_#{note.id}" />
+
+  <h2> <%= note.title %> </h2>
+
+  <p> <%= sanitize note.body %> </p>
+
+  <hr />
+<% end %>
