@@ -1,25 +1,28 @@
-<h1> Show Your Top Matches </h1>
+<div class="spaced_container">
 
-<table>
-  <tr>
-    <th> Employer </th>
-    <th> Job Title </th>
-    <th> Match Level </th>
-    <th> Question Overlap </th>
-    <th> Match Confidence </th>
-  </tr>
-  <% @matches.each do |match| %>
+  <h1> Show Your Top Matches </h1>
+
+  <table>
     <tr>
-      <td> <%= match.job.employer %> </td>
-      <td> <%= match.job.title %> </td>
-      <td> <%= match.matching %> / <%= match.match_out_of %> </td>
-      <td> <%= match.question_overlap %> </td>
-      <td> <%= match.match_confidence %> </td>
+      <th> Employer </th>
+      <th> Job Title </th>
+      <th> Match Level </th>
+      <th> Question Overlap </th>
+      <th> Match Confidence </th>
     </tr>
-  <% end %>
-</table>
+    <% @matches.each do |match| %>
+      <tr>
+        <td> <%= match.job.employer %> </td>
+        <td> <%= match.job.title %> </td>
+        <td> <%= match.matching %> / <%= match.match_out_of %> </td>
+        <td> <%= match.question_overlap %> </td>
+        <td> <%= match.match_confidence %> </td>
+      </tr>
+    <% end %>
+  </table>
 
-<%= button_to("Recalculate Your Matches", :controller => :profiles,
-              :action => :recalculate_matches) %>
-<%= button_to("Clear Your Matches", :controller => :profiles,
-              :action => :recalculate_matches) %>
+  <%= button_to("Recalculate Your Matches", :controller => :profiles,
+                :action => :recalculate_matches) %>
+  <%= button_to("Clear Your Matches", :controller => :profiles,
+                :action => :recalculate_matches) %>
+</div>
