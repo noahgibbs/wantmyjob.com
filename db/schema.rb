@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101101080419) do
+ActiveRecord::Schema.define(:version => 20101102051747) do
 
   create_table "answers", :force => true do |t|
     t.integer "job_id"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(:version => 20101101080419) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "soft_deleted",                :default => false
+  end
+
+  create_table "notes", :force => true do |t|
+    t.integer  "note_type"
+    t.text     "body"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "profiles", :force => true do |t|
