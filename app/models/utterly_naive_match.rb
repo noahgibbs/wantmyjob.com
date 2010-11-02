@@ -59,7 +59,10 @@ class UtterlyNaiveMatch < ActiveRecord::Base
     skipped_ids = []
 
     all_q_ids.each do |q_id|
-      next unless p_map[q_id] && j_map[q_id]
+      unless p_map[q_id] && j_map[q_id]
+        skipped_ids += [q_id]
+        next
+      end
 
       answer = j_map[q_id].data1
       if answer == 0  # Skipped questions don't count
