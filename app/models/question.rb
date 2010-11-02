@@ -20,8 +20,8 @@ class Question < ActiveRecord::Base
   # or about your perfect company to work for.
   EMPLOYER_QUESTION = 1
 
-  scope :verified, where(:verified => true, :completed => true,
-                         :soft_deleted => false)
+  scope :verified, where(:verified => true, :completed => true)
+  scope :unverified, where(:verified => false)
 
   # This is actually done by answer type, not question type.  It
   # returns a Question, though, so it winds up having to be a
