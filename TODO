@@ -5,7 +5,6 @@ Release 1, MVP:
   - Usefully view matches
     - Pretty up view
   - Specs for UtterlyNaiveMatch calculations
-  - Test with well over five questions
 
 Monitoring:
   - Daily RSS feed of vital info like total users, logins & questions, etc.
