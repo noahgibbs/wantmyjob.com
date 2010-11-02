@@ -22,6 +22,7 @@ Important, but probably not release 1:
 
   - Cucumber tests
   - Karma points
+  - Figure skipped questions into Wilson score somehow
   - Use delayed_job for updating matches
 
 Usability:
