@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_one :profile
+  has_many :profiles
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable
@@ -18,6 +18,15 @@ class User < ActiveRecord::Base
     # Find the user object for the specified parameters
     value = conditions[authentication_keys.first]
     where(["login = :value OR email = :value", { :value => value }]).first
+  end
+
+  def profile
+    return nil if profiles.empty?
+    @current_profile ||= profiles[0]
+  end
+
+  def set_current_profile(p)
+    @current_profile = p
   end
 
 end
