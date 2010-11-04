@@ -19,8 +19,8 @@
     <% end %>
   </table>
 
-  <%= button_to("Recalculate Your Matches", :controller => :profiles,
-                :action => :recalculate_matches) %>
-  <%= button_to("Clear Your Matches", :controller => :profiles,
-                :action => :recalculate_matches) %>
+  <%= button_to("Recalculate Your Matches", {:controller => :profiles,
+                :action => :recalculate_matches}, :class => :submit_button) %>
+  <%= button_to("Clear Your Matches", {:controller => :profiles,
+                :action => :recalculate_matches}, :class => :submit_button) %>
 </div>
