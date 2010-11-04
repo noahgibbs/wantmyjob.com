@@ -20,13 +20,19 @@ class User < ActiveRecord::Base
     where(["login = :value OR email = :value", { :value => value }]).first
   end
 
+  def current_profile
+    p = profiles.where(:current => true)
+    p && p.first
+  end
+
   def profile
-    return nil if profiles.empty?
-    @current_profile ||= profiles[0]
+    current_profile
   end
 
   def set_current_profile(p)
-    @current_profile = p
+    profiles.where(:current => true).each { |cp| cp.current = false; cp.save! }
+    p.current = true
+    p.save!
   end
 
 end
