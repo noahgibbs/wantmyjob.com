@@ -17,7 +17,7 @@ h1 {
 
 .spaced_container {
   max-width: 800px;
-  margin: 11.111%;
+  margin: 7.0% 11.111%;
 }
 
 .flash_notice, .flash_error, .flash_warning {
