@@ -7,6 +7,7 @@ Internal Release, Infrastructure:
   - Exception tracking
   - turn on paper_trail
     - remove soft_delete flag from all models
+  - Move various match actions into matches controller
 
 Testing/Prototyping:
 
