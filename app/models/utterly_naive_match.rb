@@ -120,6 +120,6 @@ class UtterlyNaiveMatch < ActiveRecord::Base
 
   def match_percent
     number_to_percentage(match_confidence * 100.0,
-        :significant => true, :strip_insignificant_zeros => true)
+        :significant => true)
   end
 end
