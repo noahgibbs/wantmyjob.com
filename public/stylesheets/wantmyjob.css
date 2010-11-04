@@ -8,7 +8,8 @@ body {
 }
 
 h1 {
-  text-align: center;
+  margin-left: 100px;
+  margin-bottom: 2em;
 }
 
 .top_container {
@@ -17,7 +18,7 @@ h1 {
 
 .spaced_container {
   max-width: 800px;
-  margin: 7.0% 11.111%;
+  margin: 11.111% 11.111%;
 }
 
 .flash_notice, .flash_error, .flash_warning {
@@ -48,6 +49,20 @@ h1 {
   padding-right: 2em;
 }
 
+.global_disclaimer {
+  float: right;
+  max-width: 30%;
+  font-size: 80%;
+}
+
+.logged_in_as {
+  background-color: #FFFFC0;
+  padding: 0.5em;
+  -moz-border-radius:0.5em;
+  -webkit-border-radius:0.5em;
+  border: 1px solid black;
+}
+
 .right_float_bar {
   padding: 0.5em;
   float: right;
@@ -76,10 +91,10 @@ h1 {
 
 .call_to_action {
   display: inline;
-  padding: 0.5em;
   font-size: 200%;
   color: #FF0000;
   text-shadow: 0.1em 0.1em 0.1em #88f;
+  padding: 0.5em;
   background-color: #A0A0FF;
   -moz-border-radius:1.5em;
   -webkit-border-radius:1.5em;
@@ -117,11 +132,11 @@ h1 {
 }
 
 .inset {
-  margin-left: 2em;
+  margin-left: 50px;
 }
 
 .very_inset {
-  margin-left: 6em;
+  margin-left: 100px;
 }
 
 .primary {

@@ -7,11 +7,11 @@
 
   <% if current_user %>
     &nbsp; &nbsp; &nbsp;
-    <%= link_to(content_tag('div', 'Improve',
+    <%= link_to(content_tag('div', 'Answer',
                             :class => 'improve_button shadow'),
                 {:controller => :home, :action => :portal},
                 :title => "Improve your recommendations!") %>
-    <%= link_to(content_tag('div', 'Suggest',
+    <%= link_to(content_tag('div', 'See Jobs',
                             :class => 'suggest_button shadow'),
                 {:controller => :home, :action => :suggest},
                 :title => "Suggest matching jobs!") %>
@@ -20,14 +20,7 @@
   <div class="floatright">
     <%= link_to("About WMJ", "/about") %> &nbsp; &nbsp;
     <%= link_to("Privacy", "/privacy") %> &nbsp; &nbsp;
-
-    <% if current_user %>
-      Logged in as <%= current_user.login %>.
-      <%= link_to("Log out?", destroy_user_session_path) %> or
-      <%= link_to("Edit account", edit_user_registration_path) %>
-    <% else %>
-      <%= link_to("Log in", new_user_session_path) %> or
-      <%= link_to("join!", new_user_registration_path) %>
-    <% end %>
   </div>
 </div>
+
+<div class="clear">
