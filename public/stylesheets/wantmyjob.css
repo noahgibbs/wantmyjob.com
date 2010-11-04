@@ -109,6 +109,12 @@ h1 {
   background-color: #A0A0FF;
 }
 
+.cpa_column {
+  font-family: "Courier New", Courier, monospace;
+  text-align: right;
+  font-weight: bold;
+}
+
 .warm_text {
   color: #503E2B;
 }
