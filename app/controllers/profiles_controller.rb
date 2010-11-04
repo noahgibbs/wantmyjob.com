@@ -15,8 +15,13 @@ class ProfilesController < ApplicationController
 
   def show_matches
     all_matches = UtterlyNaiveMatch.where(:profile_id => current_user.profile.id)
+    my_jobs = current_user.profile.jobs.map(&:id)
+
     # Order the matches appropriately (by match_confidence, descending)
     @matches = all_matches.sort_by {|match| -match.match_confidence}
+    @matches = @matches.select {|match| match.match_confidence >= 0.05 &&
+                                 match.question_overlap >= 2 &&
+                                 !my_jobs.include?(match.job_id)}
   end
 
   def recalculate_matches
