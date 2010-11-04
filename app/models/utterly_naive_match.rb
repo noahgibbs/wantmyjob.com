@@ -2,6 +2,8 @@ class UtterlyNaiveMatch < ActiveRecord::Base
   belongs_to :job
   belongs_to :profile
 
+  include ActionView::Helpers::NumberHelper
+
   def self.create_matches_for(profiles = :all, jobs = :all)
     profiles = [profiles] if profiles.kind_of? Profile
     jobs = [jobs] if jobs.kind_of? Job
@@ -116,4 +118,8 @@ class UtterlyNaiveMatch < ActiveRecord::Base
     UtterlyNaiveMatch.wilson_score(self.matching, self.match_out_of, 0.05)
   end
 
+  def match_percent
+    number_to_percentage(match_confidence * 100.0,
+        :significant => true, :strip_insignificant_zeros => true)
+  end
 end
