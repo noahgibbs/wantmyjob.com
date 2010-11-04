@@ -90,7 +90,7 @@ class QuestionsController < ApplicationController
     end
     flash[:notice] = "Your question has been submitted.  After a moderator " +
       "checks it, it will be added to the site."
-    redirect_to :controller => :home, :action => :portal
+    redirect_to :action => :enter
   end
 
   # Action to verify questions, checked from the index view
