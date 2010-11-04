@@ -1,19 +1,19 @@
 <div class="spaced_container">
-  <h1> Suggest a Question </h1>
+  <h1> Write a Question </h1>
 
   <p>
-    To improve the site, you can suggest questions we should ask about
-    employers.  What would be important about a job that might make
-    somebody want to work there or not?  Little stuff is better than
-    big stuff -- does everybody there watch baseball?  Do you all
-    geek out about Perl?  Prefer Macs to Linux boxes?
+    To improve the site, you can write with questions we should ask
+    about employers.  Why work there?  Why avoid them?  Little stuff
+    is better than big stuff -- do all the sysadmins watch baseball?
+    Do you all geek out about Perl?  Prefer Macs to Linux boxes?
   </p>
 
   <p>
-    In your question, write &lt;company&gt; where the company name should
+    In your question, write &lt;company&gt; where the employer should
     be, just like you'd write &lt;br&gt; or &lt;i&gt; in HTML.  Remember
-    that sometimes it will be a description like "your dream job" or "your
-    perfect employer", not the actual name of a company.
+    that sometimes it will be a description like "your
+    perfect employer" or "the place you worked in 2005", not the actual
+    name of a company.
   </p>
 
   <%= form_tag :action => :enter_post do %>
@@ -32,7 +32,7 @@
       <% end %>
     </table>
 
-    <%= submit_tag 'Suggest', :class => :submit_button %>
+    <%= submit_tag 'Submit', :class => :submit_button %>
 
   <% end %>
 </div>
