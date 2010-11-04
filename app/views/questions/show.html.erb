@@ -10,6 +10,21 @@
   <%= question.text %>
 </p>
 
+<p> <%= question.question_answers.count %> Suggested Answers </p>
+
+<ul>
+  <% question.question_answers.each do |qa| %>
+    <li> <%= qa.text %> </li>
+  <% end %>
+</ul>
+
+<% if !question.verified %>
+  <%= button_to("Approve",
+                :controller => "questions", :action => "verify_questions",
+                :questions => {question.id.to_s => {:verified => "1"}}) %>
+
+  <%= button_to 'Destroy', question, :method => :delete %>
+<% end %>
 
 <%= link_to 'Edit', edit_question_path(question) %> |
 <%= link_to 'Back', questions_path %>

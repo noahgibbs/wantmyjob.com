@@ -6,6 +6,7 @@
     <tr>
       <th>Type</th>
       <th>Text</th>
+      <th>Answers</th>
       <th>Verified</th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
     <tr>
       <td><%= question.question_type %></td>
       <td><%= question.text %></td>
+      <td><%= question.question_answers.count %></td>
       <td><%= check_box("question[#{question.id}]", :verified,
                         :disabled => question.verified) %></td>
       <td><%= link_to 'Show', question %></td>
