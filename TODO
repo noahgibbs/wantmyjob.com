@@ -7,8 +7,7 @@ Release 1, MVP:
   - Specs for UtterlyNaiveMatch calculations
 
 Monitoring:
-  - Daily RSS feed of vital info like total users, logins & questions, etc.
-  - App console with the same info, and exceptions
+  - App console with exceptions
 
 Auditing:
   - turn on paper_trail

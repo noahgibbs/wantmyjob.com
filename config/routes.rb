@@ -54,6 +54,9 @@ Wantmyjob::Application.routes.draw do
     resources :notes, :actions => [:index]
   end
 
+  # Admin tools
+  match '/admin/console' => 'admin#console'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

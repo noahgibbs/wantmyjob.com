@@ -1,0 +1,29 @@
+<h1> Admin Console </h1>
+
+<div class="spaced_container">
+  <div class="approval infoblock">
+    <h2> Stuff to Approve </h2>
+
+    <p>
+      Questions to Approve: <%= questions_to_approve.count %>
+        <%= link_to("(Approve them)", :controller => :questions,
+                    :action => :index) %> <br/>
+    </p>
+  </div>
+
+  <div class="newstuff infoblock">
+    <h2> New Stuff in the Last 24 Hours </h2>
+
+    <p>
+      New Users Today (<%= new_users.count %>):
+        <%= new_users.map(&:login).join(", ") %>  <br/>
+      New Profiles Today (<%= new_profiles.count %>):
+        <%= new_profiles.map(&:fullname).join(", ") %>  <br/>
+      New Questions Today: <%= new_questions.count %> <br/>
+      Total Answers: <%= Answer.count %> <br/>
+      New Jobs Today (<%= new_jobs.count %>):
+        <%= new_jobs.map(&:employer).join(", ") %> <br/>
+    </p>
+  </div>
+
+</div>
