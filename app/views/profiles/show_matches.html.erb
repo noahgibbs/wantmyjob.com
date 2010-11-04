@@ -6,17 +6,15 @@
     <tr>
       <th> Employer </th>
       <th> Job Title </th>
-      <th> Match Level </th>
-      <th> Question Overlap </th>
-      <th> Match Confidence </th>
+      <th> &nbsp; &nbsp; &nbsp; Match Confidence </th>
     </tr>
     <% @matches.each do |match| %>
       <tr>
-        <td> <%= match.job.employer %> </td>
+        <td> <%= link_to(match.job.employer || "Unspecified",
+                         :controller => :matches, :action => :show,
+                         :id => match.id) %> </td>
         <td> <%= match.job.title %> </td>
-        <td> <%= match.matching %> / <%= match.match_out_of %> </td>
-        <td> <%= match.question_overlap %> </td>
-        <td> <%= match.match_confidence %> </td>
+        <td class="align_right"> <%= match.match_percent %> </td>
       </tr>
     <% end %>
   </table>

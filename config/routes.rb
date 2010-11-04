@@ -35,10 +35,9 @@ Wantmyjob::Application.routes.draw do
       post :enter_post
       post :verify_questions
     end
-
-    member do
-    end
   end
+
+  resources :matches, :only => [:show]
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 

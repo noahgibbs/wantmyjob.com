@@ -1,0 +1,49 @@
+<div class="spaced_container">
+  <h1> <%= match.match_percent %> Job Match </h1>
+
+  <p>
+    Somebody had a job that might have been a good match for you.
+    Here's what we know about that job:
+  </p>
+
+  <table>
+    <tr>
+      <td>Employer:</td> <td> <%= match.job.employer %> </td>
+    </tr>
+    <tr>
+      <td>Title:</td> <td> <%= match.job.title %> </td>
+    </tr>
+    <tr>
+      <td>Start:</td> <td> <%= match.job.start_date %> </td>
+    </tr>
+    <tr>
+      <td>End:</td> <td> <%= match.job.end_date %> </td>
+    </tr>
+  </table>
+
+  <p>
+    And here's what we know about that match-up:
+
+    Based on <span class="emphatic"><%= match.question_overlap %>
+    relevant questions</span>, and an <span class="emphatic">importance
+    match of <%= match.matching %> / <%= match.match_out_of %></span>,
+    we rate this job <%= match.match_percent %> compatible with
+    your stated preferences.
+  </p>
+
+  <p>
+    Do you think this is a bad match?
+    <%= link_to("Submit a question",
+                :controller => :questions, :action => :enter) %>
+    that tells us why this isn't the job for you.
+  </p>
+
+  <p>
+    Do you think this match should be even better?
+    <%= link_to("Submit a question",
+                :controller => :questions, :action => :enter) %>
+    that shows off how awesome this job is.
+  </p>
+
+  <%= link_to("Back", :controller => :home, :action => :suggest) %>
+</div>
