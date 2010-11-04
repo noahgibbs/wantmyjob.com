@@ -193,6 +193,10 @@ h1 {
   text-align: center;
 }
 
+.align_right {
+  text-align: right;
+}
+
 .center_inline {
   text-align: center;
   display: inline;
