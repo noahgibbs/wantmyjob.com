@@ -1,27 +1,21 @@
 Release 1, MVP:
 
-  - Allow users to match with jobs every hour or so, by pushing a button
-    - Prevent doing it constantly
-  - Usefully view matches
-    - Pretty up view
+  - Prevent users from recalculating matches constantly
   - Specs for UtterlyNaiveMatch calculations
 
-Monitoring:
-  - App console with exceptions
-
-Auditing:
+Internal Release, Infrastructure:
+  - Exception tracking
   - turn on paper_trail
     - remove soft_delete flag from all models
 
 Testing/Prototyping:
 
-  - Add toggle to show or not show demo profiles for matches
+  - Demo profiles
   - Enter a bunch of demo profiles for matches
 
 Important, but probably not release 1:
 
   - Cucumber tests
-  - Karma points
   - Figure skipped questions into Wilson score somehow
   - Use delayed_job for updating matches
   - Add test verifying that only questions marked verified are asked
@@ -36,3 +30,13 @@ Formatting and Prettiness:
 
   - Custom 404 page
   - Trim invalid links from various devise and registration views
+
+Release 2, Goalitude:
+
+  - Goals in database for things like "fully answer five questions"
+    or "submit a question to the site"
+  - Show current goal progress when improving recommendations
+  - Very basic karma tracking
+  - MailChimp, with at least one reminder email in some capacity
+  - "Hey, you just logged in, answer this thing for me" facility?
+    - For asking stuff like "is it okay for me to start emailing you?"
