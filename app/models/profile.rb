@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :jobs
+  has_many :utterly_naive_matches
 
   # This should be protected.  According to the RSpec mailing list,
   # I should probably be factoring this out into a separate public

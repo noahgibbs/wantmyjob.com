@@ -2,6 +2,7 @@ class Job < ActiveRecord::Base
   belongs_to :work_site
   belongs_to :profile
   has_many :answers
+  has_many :utterly_naive_matches
 
   before_save :check_employer
 
