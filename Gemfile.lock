@@ -69,6 +69,9 @@ GEM
     ffi (0.6.3)
       rake (>= 0.8.7)
     gem_plugin (0.2.3)
+    hoptoad_notifier (2.3.12)
+      activesupport
+      builder
     i18n (0.4.1)
     json_pure (1.4.6)
     mail (2.2.7)
@@ -145,6 +148,7 @@ DEPENDENCIES
   delayed_job!
   devise (~> 1.1.2)
   factory_girl_rails
+  hoptoad_notifier
   mongrel
   mysql2
   paper_trail

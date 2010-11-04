@@ -11,6 +11,7 @@ gem "devise", '~>1.1.2'
 gem "delayed_job", :git => 'git://github.com/collectiveidea/delayed_job.git'
 gem "paper_trail"
 gem "statistics2"
+gem "hoptoad_notifier"
 
 # Deploy with Capistrano
 # gem 'capistrano'
