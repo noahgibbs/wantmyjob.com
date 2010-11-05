@@ -29,6 +29,7 @@ class UtterlyNaiveMatch < ActiveRecord::Base
       perfect_answers = Answer.where(:profile_id => p.id,
                                 :answer_type => Answer::PERFECT_COMPANY_ANSWER).
                                order("question_id ASC")
+      return if perfect_answers.nil? || perfect_answers.empty?
       jobs.each do |j|
         job_answers = Answer.where(:job_id => j.id,
                                    :answer_type => Answer::COMPANY_ANSWER).
@@ -55,7 +56,7 @@ class UtterlyNaiveMatch < ActiveRecord::Base
     j_map = {}
     j_answers.each {|a| j_map[a.question_id] = a}
 
-    total_match = total_importance = 0
+    total_match = total_importance = 0.0
 
     all_q_ids = (p_map.keys + j_map.keys).uniq
     skipped_ids = []
