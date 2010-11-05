@@ -25,6 +25,7 @@ Usability:
   - When entering jobs, set start_date on following row to end_date just
     entered, unless that date has been changed manually at some point
   - Cut down on the number of redirects
+  - Feedstats link and links to data objects shown in admin console
 
 Formatting and Prettiness:
 
