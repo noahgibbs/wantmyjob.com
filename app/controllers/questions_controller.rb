@@ -96,6 +96,7 @@ class QuestionsController < ApplicationController
   # Action to verify questions, checked from the index view
   def verify_questions
     pq = params[:question]
+    return malformed_url_error unless pq
     num_saved = 0
     pq.keys.each do |idx|
       q = Question.find(idx)
