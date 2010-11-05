@@ -2,23 +2,38 @@
 
   <h1> Show Your Top Matches </h1>
 
-  <table>
-    <tr>
-      <th> Employer </th>
-      <th> Job Title </th>
-      <th> &nbsp; &nbsp; &nbsp; Match Confidence </th>
-    </tr>
-    <% @matches.each do |match| %>
+  <% if @last_match_time %>
+    <table>
       <tr>
-        <td> <%= link_to(match.job.employer || "Unspecified",
-                         :controller => :matches, :action => :show,
-                         :id => match.id) %> </td>
-        <td> <%= match.job.title %> </td>
-        <td class="cpa_column"> <%= match.match_percent %> </td>
+        <th> Employer </th>
+        <th> Job Title </th>
+        <th> &nbsp; &nbsp; &nbsp; Match Confidence </th>
       </tr>
-    <% end %>
-  </table>
+      <% @matches.each do |match| %>
+        <tr>
+          <td> <%= link_to(match.job.employer || "Unspecified",
+                           :controller => :matches, :action => :show,
+                           :id => match.id) %> </td>
+          <td> <%= match.job.title %> </td>
+          <td class="cpa_column"> <%= match.match_percent %> </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <div>
+      Last recalculate: <%= distance_of_time_in_words(@last_match_time,
+                                                      Time.now) %> ago
+    </div>
+  <% else %>
+    <div>
+      I'm not finding any matches.  Hit the "recalculate" button below
+      to fix that.
+    </div>
+  <% end %>
 
   <%= button_to("Recalculate Your Matches", {:controller => :profiles,
                 :action => :recalculate_matches}, :class => :submit_button) %>
+
+  <%= link_to("(Actually, show me my matches with my own jobs, too!)",
+              :self_match => "1") %>
 </div>

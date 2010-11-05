@@ -22,6 +22,10 @@ class ProfilesController < ApplicationController
     @matches = @matches.select {|match| match.match_confidence >= 0.05 &&
                                  match.question_overlap >= 2}
     @matches = @matches.select {|match| !my_jobs.include?(match.job_id)} unless params[:self_match]
+
+    if all_matches && !all_matches.empty?
+      @last_match_time = all_matches[0].updated_at
+    end
   end
 
   def recalculate_matches
