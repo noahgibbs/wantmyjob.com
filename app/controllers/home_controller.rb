@@ -10,9 +10,10 @@ class HomeController < ApplicationController
   def portal
     unless current_user.profile
       # Make a new empty profile for the user
-      current_user.create_profile
+      p = Profile.new
+      current_user.profiles << p
       current_user.save!
-      current_user.profile.save!
+      p.save!
     end
 
     # Check to see if the user has entered any current jobs
