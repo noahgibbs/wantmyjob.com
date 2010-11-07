@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
+  before_filter :requires_admin, :only => ([SCAFFOLD_ACTIONS] - [:edit])
 
   # Action for entering a list of new jobs
   def enter
@@ -56,7 +56,11 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
-    @job = Job.find(params[:id])
+    if current_user.admin?
+      @job = Job.find(params[:id])
+    else
+      @job = Job.where(:profile_id => current_user.profile.id).find(params[:id])
+    end
   end
 
   # POST /jobs
