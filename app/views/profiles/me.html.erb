@@ -21,6 +21,7 @@
       <th> Title </th>
       <th> Start Date </th>
       <th> End Date </th>
+      <th> </th>
     </tr>
 
     <% jobs.each do |job| %>
@@ -29,6 +30,7 @@
         <td><%= job.title %> </td>
         <td><%= job.start_date %> </td>
         <td><%= job.end_date %> </td>
+        <td><%= link_to("Edit", edit_job_path(job)) %> </td>
       </tr>
     <% end %>
   </table>
