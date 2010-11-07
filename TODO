@@ -1,7 +1,3 @@
-Release 1, MVP:
-
-  - Specs for UtterlyNaiveMatch calculations
-
 Release 1, Supplemental:
 
   - Link to profile overview
@@ -13,6 +9,7 @@ Internal Release, Infrastructure:
   - turn on paper_trail
     - remove soft_delete flag from all models
   - Move various match actions into matches controller
+  - Specs for UtterlyNaiveMatch calculations
 
 Testing/Prototyping:
 
