@@ -1,12 +1,41 @@
 <% title "My Profile" %>
 
 <div class="spaced_container">
-  <h1> <%= profile.fullname %> </h1>
+  <ul>
+    <li><%= link_to("Change your email address or password?",
+                    edit_user_registration_path) %></li>
+  </ul>
 
   <p>
-    Right now, this profile is private.  Eventually, some of your
-    information will be visible to other site users.
+    For now, treat this information as public.  Eventually there
+    will be access controls.  For now, try to put the appropriate
+    information knowing that somebody could say, "hey, tell me about
+    that job you had."  That's the plan.
   </p>
+
+  <h1> Your Jobs </h1>
+
+  <table>
+    <tr>
+      <th> Employer </th>
+      <th> Title </th>
+      <th> Start Date </th>
+      <th> End Date </th>
+    </tr>
+
+    <% jobs.each do |job| %>
+      <tr>
+        <td><%= job.employer %></td>
+        <td><%= job.title %> </td>
+        <td><%= job.start_date %> </td>
+        <td><%= job.end_date %> </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to("Add more jobs", :controller => :jobs, :action => :enter) %>
+
+  <h1> Personal Information for <%= profile.fullname || "you" %> </h1>
 
   <p>
     <b>Birth day:</b>

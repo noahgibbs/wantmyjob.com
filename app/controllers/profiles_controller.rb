@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
 
   expose(:profile)
+  expose(:jobs) { profile.jobs }
 
   def me
     params[:id] = current_user.profile.id
