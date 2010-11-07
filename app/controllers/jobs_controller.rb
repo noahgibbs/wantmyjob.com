@@ -56,7 +56,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
-    if current_user.admin?
+    if current_user.admin
       @job = Job.find(params[:id])
     else
       @job = Job.where(:profile_id => current_user.profile.id).find(params[:id])
