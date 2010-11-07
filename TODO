@@ -3,6 +3,13 @@ Release 1, MVP:
   - Prevent users from recalculating matches constantly
   - Specs for UtterlyNaiveMatch calculations
 
+Release 1, Supplemental:
+
+  - Link to profile overview
+  - Edit profile
+  - Link to add more jobs
+  - Edit existing jobs
+
 Internal Release, Infrastructure:
   - turn on paper_trail
     - remove soft_delete flag from all models
