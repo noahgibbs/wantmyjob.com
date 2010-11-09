@@ -63,11 +63,15 @@ h1 {
   border: 1px solid black;
 }
 
-.right_float_bar {
-  padding: 0.5em;
+.right_link_widget {
+  clear: right;
   float: right;
-  color: #9E948A;
-  background-color: #503E2B;
+  // color: #9E948A;
+  max-width: 30%;
+  font-size: 80%;
+  margin-top: 3em;
+  // background-color: #503E2B;
+  border: 2px solid black;
   -moz-border-radius:0.5em;
   -webkit-border-radius:0.5em;
 }
