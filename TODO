@@ -37,3 +37,10 @@ Release 2, Goalitude:
   - MailChimp, with at least one reminder email in some capacity
   - "Hey, you just logged in, answer this thing for me" facility?
     - For asking stuff like "is it okay for me to start emailing you?"
+
+Promotion:
+
+  - Robots.txt
+  - Favicon.ico
+  - Sitemap.xml
+  - Review titles, h1 tags, meta tags, etc
