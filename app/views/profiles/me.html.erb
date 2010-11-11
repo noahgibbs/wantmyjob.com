@@ -1,4 +1,5 @@
 <% title "My Profile" %>
+<% big_center_text "My Profile" %>
 
 <div class="spaced_container">
   <ul>
@@ -13,7 +14,7 @@
     that job you had."  That's the plan.
   </p>
 
-  <h1> Your Jobs </h1>
+  <h2> Your Jobs </h2>
 
   <table>
     <tr>
@@ -37,7 +38,7 @@
 
   <%= link_to("Add more jobs", :controller => :jobs, :action => :enter) %>
 
-  <h1> Personal Information for <%= profile.fullname || "you" %> </h1>
+  <h2> Personal Information for <%= profile.fullname || "you" %> </h2>
 
   <p>
     <b>Birth day:</b>

@@ -1,7 +1,6 @@
+<% big_center_text "Improve Your Recommendations" %>
+
 <div class="spaced_container">
-
-  <h1> Improve Your Recommendations </h1>
-
   <%= form_tag(:action => :answer_post) do %>
     <%= hidden_field_tag "answer[answer_type]", @answer_type %>
     <%= hidden_field_tag "answer[question_id]", @question.id %>

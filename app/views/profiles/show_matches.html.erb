@@ -1,6 +1,6 @@
-<div class="spaced_container">
+<% big_center_text "Show Your Top Matches" %>
 
-  <h1> Show Your Top Matches </h1>
+<div class="spaced_container">
 
   <% if @last_match_time %>
     <table>
@@ -31,8 +31,10 @@
     </div>
   <% end %>
 
-  <%= button_to("Recalculate Your Matches", {:controller => :profiles,
-                :action => :recalculate_matches}, :class => :submit_button) %>
+  <div class="button">
+    <%= link_to("Recalculate", {:controller => :profiles,
+                :action => :recalculate_matches}, :method => :post) %>
+  </div>
 
   <%= link_to("(Actually, show me my matches with my own jobs, too!)",
               :self_match => "1") %>

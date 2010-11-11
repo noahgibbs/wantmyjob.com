@@ -3,7 +3,7 @@ body {
   padding:0px;
   color:#ccc;
   font-family: 'Crimson Text', arial, serif;
-  font-size:14px;
+  font-size:15px;
   line-height:1.5em; 
   background-color: #1c435c;
   background-image: url(/images/templatemo_body.jpg);
@@ -26,11 +26,11 @@ img { border: none; }
 h1, h2, h3, h4, h5 { font-weight: normal; }
 
 h1 { font-size: 40px; color: #333; margin: 0 0 30px 0; padding: 5px 0; }
-h2 { font-size: 24px; color: #fff; margin: 0 0 20px 0; padding: 0; }
-h3 { font-size: 21px; color: #fff; margin: 0 0 20px 0; padding: 0; }
-h4 { font-size: 18px; color: #fff; margin: 0 0 10px 0; padding: 0; }
-h5 { font-size: 16px; color: #fff; margin: 0 0 10px 0; padding: 0; }
-h6 { font-size: 15px; margin: 0 0 5px 0; padding: 0;}
+h2 { font-size: 28px; color: #fff; margin: 0 0 20px 0; padding: 0; }
+h3 { font-size: 24px; color: #fff; margin: 0 0 20px 0; padding: 0; }
+h4 { font-size: 21px; color: #fff; margin: 0 0 10px 0; padding: 0; }
+h5 { font-size: 18px; color: #fff; margin: 0 0 10px 0; padding: 0; }
+h6 { font-size: 16px; margin: 0 0 5px 0; padding: 0;}
 
 .cleaner { clear: both; width: 100%; height: 0px; font-size: 0px;  }
 

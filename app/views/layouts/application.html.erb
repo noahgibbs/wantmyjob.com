@@ -32,15 +32,15 @@
   <div class="wmj_menu">
     <ul>
       <li><%= link_to("Answer",
-                      :controller => :home, :action => :portal) %></li>
+                      :controller => "/home", :action => :portal) %></li>
       <li><%= link_to("Match",
-                   :controller => :profiles, :action => :show_matches) %></li>
+                   :controller => "/profiles", :action => :show_matches) %></li>
       <% if current_user %>
         <li><%= link_to("Profile",
-                        :controller => :profiles, :action => :me) %></a></li>
+                        :controller => "/profiles", :action => :me) %></a></li>
       <% end %>
       <% if current_user && current_user.admin? %>
-        <li><a href="admin.html">Admin</a></li>
+        <li><a href="/admin/console">Admin</a></li>
       <% end %>
     </ul>
   </div>

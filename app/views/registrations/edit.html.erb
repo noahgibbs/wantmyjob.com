@@ -1,6 +1,6 @@
-<div class="spaced_container">
-  <h2>Change Your Email or Password</h2>
+<% big_center_text "Change Your Email or Password" %>
 
+<div class="spaced_container">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
 
