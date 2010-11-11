@@ -1,33 +1,37 @@
-<% title "WantMyJob Alpha" %>
+<% title "Jobs in Computer Programming" %>
+<% big_center_text "The Right Job.  Now." %>
 
-<%= render :partial => "home/hn_nov_links" %>
+<h2> Get Started </h2>
 
-<div class="spaced_container">
-  <h1> The Right Tech Job.  Now. </h1>
-
-  <div class="info_block">
+  <p>
     <span class="emphatic">Answer simple questions</span>
     for us about your tech jobs.
     <span class="emphatic">We recommend jobs</span> from
     our database.
     Answer more, get better recommendations.
     <span class="emphatic">Free to use.  Always</span>.
+  </p>
+
+  <div class="cleaner_h20"></div>
+
+  <div class="button float_l">
+    <%= link_to("Start Now!", new_user_registration_path) %>
+  </div>
+  <div class="float_l"> &nbsp; &nbsp; or &nbsp; &nbsp; </div>
+  <div class="button float_l">
+    <%= link_to("Log In", new_user_session_path) %>
   </div>
 
-  <div class="center_div">
-    <div class="call_to_action shadow">
-     <%= link_to("Start Now!", new_user_registration_path) %>
-    </div>
-    <br/> &nbsp; &nbsp; &nbsp;
-    (or <%= link_to("log in", new_user_session_path) %>)
-  </div>
+  <div class="cleaner_h20"></div>
 
-  <div class="info_block secondary">
-    (Is your company hiring?  Answer questions about them and
-     we'll send good matches their way, automatically.)
-  </div>
+  <p class="secondary">
+    Is your company hiring?  Answer questions about them and
+    we'll send good matches their way, automatically.
+  </p>
 
-  <div class="info_block">
+  <div class="cleaner_h20"></div>
+
+  <div>
     <span class="emphatic">Some jobs we know about:</span>
 
     <% @jobs.each do |job| %>
@@ -38,3 +42,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render :partial => "home/hn_nov_links" %>

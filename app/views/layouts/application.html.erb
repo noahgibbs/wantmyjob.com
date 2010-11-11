@@ -2,43 +2,86 @@
 <html>
 <head>
   <title>WMJ: <%= @title ? @title : "Find Your Job" %> </title>
+  <meta name="keywords" content="<%= @keywords ? @keywords.join(",") : ""%>" />
+  <meta name="description" content="<%= @description || "A site for peer-to-peer job search" %>" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
   <%= javascript_include_tag "rails" %>
   <%= csrf_meta_tag %>
-  <link href='http://fonts.googleapis.com/css?family=Vollkorn&subset=latin' rel='stylesheet' type='text/css'%>
+  <link href='http://fonts.googleapis.com/css?family=Crimson+Text&subset=latin' rel='stylesheet' type='text/css'%>
   <meta name="google-site-verification" content="9X05knF7TP7WPc3okWf63cJ-qtbMTWjBlSXD11wVaL8" />
 </head>
 <body>
 
-<%= render :partial => "home/menubar" %>
+<div class="wmj_wrapper">
+  <div class="wmj_header">
+    <div class="site_title">
+      <h1><a href="http://wantmyjob.com" target="_parent">
+        <strong>WantMyJob</strong>
+        <span>The Right Tech Job.  Now.</span>
+      </a></h1>
+    </div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :class => "flash_#{name}" %>
-<% end %>
+    <div class="float_r">
+      WantMyJob Alpha is new with rough edges. <br/>Visit often and watch
+      our progress! <br/>Suggestions to noah_gibbs at yahoo.com. Thanks!
+    </div>
+  </div>
 
-<div class="floatright logged_in_as">
-  <% if current_user %>
-    Logged in as <%= current_user.login %> <br/>
-    <%= link_to("Log out", destroy_user_session_path) %> or
-    <%= link_to_unless_current("Show profile",
-                               :controller => :profiles, :action => :me) %>
-  <% else %>
-    <%= link_to("Log in", new_user_session_path) %> or
-    <%= link_to("join!", new_user_registration_path) %>
-  <% end %>
-</div>
+  <div class="wmj_menu">
+    <ul>
+      <li><%= link_to("Answer",
+                      :controller => :home, :action => :portal) %></li>
+      <li><%= link_to("Match",
+                   :controller => :profiles, :action => :show_matches) %></li>
+      <% if current_user %>
+        <li><%= link_to("Profile",
+                        :controller => :profiles, :action => :me) %></a></li>
+      <% end %>
+      <% if current_user && current_user.admin? %>
+        <li><a href="admin.html">Admin</a></li>
+      <% end %>
+    </ul>
+  </div>
 
-<div class="clear">
+  <div class="wmj_content_wrapper">
+    <% if @big_center_text %>
+      <div class="wmj_content_header">
+        <h1> <%= @big_center_text %> </h1>
+      </div>
+    <% end %>
 
-<p class="secondary global_disclaimer">
-  WantMyJob Alpha is new with rough edges.  Visit
-  often and watch our progress!  Suggestions to noah_gibbs
-  at yahoo.com.  Thanks!
-</p>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :class => "flash_#{name}" %>
+    <% end %>
 
-<div class="top_container">
-  <%= yield %>
+    <div class="logged_in_as">
+      <% if current_user %>
+        <%= link_to(current_user.login,
+                    :controller => :profiles, :action => :me) %>
+        <%= link_to("(log out)", destroy_user_session_path) %>
+      <% else %>
+        <%= link_to("Log in", new_user_session_path) %> or
+        <%= link_to("join", new_user_registration_path) %>
+      <% end %>
+    </div>
+
+    <div class="wmj_content">
+
+      <%= yield %>
+
+    </div>
+
+    <div class="cleaner_h10">
+
+    <div class="wmj_footer">
+      Copyright &copy; 2010 <a href="http://blog.angelbob.com">Noah Gibbs</a> |
+      Designed by <a href="http://www.templatemo.com">CSS Templates</a> <br />
+      <%= link_to("About WMJ", "/about") %> |
+      <%= link_to("Privacy", "/privacy") %>
+    </div>
+  </div>
 </div>
 
 <!-- Google Analytics hook -->
