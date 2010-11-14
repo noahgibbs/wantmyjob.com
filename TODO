@@ -1,3 +1,6 @@
+Prettiness:
+  - Update flash containers
+
 Internal Release, Infrastructure:
   - turn on paper_trail
     - remove soft_delete flag from all models
