@@ -1,6 +1,3 @@
-Prettiness:
-  - Update flash containers
-
 Internal Rolling Release, Infrastructure and Pretty:
   - Turn on paper_trail
     - remove soft_delete flag from all models
@@ -42,10 +39,9 @@ Formatting and Prettiness:
 
   - Custom 404 page
   - Trim invalid links from various devise and registration views
+  - Update flash containers
 
 Promotion:
 
-  - Robots.txt
-  - Favicon.ico
   - Sitemap.xml
   - Review titles, h1 tags, meta tags, etc
