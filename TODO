@@ -1,14 +1,9 @@
-Internal Rolling Release, Infrastructure and Pretty:
+Internal Rolling Release, Infrastructure:
   - Turn on paper_trail
     - remove soft_delete flag from all models
   - Move various match actions into matches controller
   - Specs for UtterlyNaiveMatch calculations
   - Install Vanity for A/B testing
-
-Testing/Prototyping:
-
-  - Demo profiles
-  - Enter a bunch of demo profiles for matches
 
 Release MVP:
   - Add very early company pages for things that might all be the
@@ -16,15 +11,25 @@ Release MVP:
     - Some kind of summary of what we know about the company
     - Browsable by casual users and bots
 
-Release - Slush Bucket:
+Release Modestly Viral:
+  - Demo profiles
+  - Enter a bunch of demo profiles for Joe Corporate, Bob Agile, etc
+  - Allow you to evaluate your company on those criteria
+  - Add HTML snippets to use as memes
 
+Release User Retention:
+  - MailChimp, with at least one reminder email in some capacity
+    - Double opt-in sign-up
+    - Install Hominid gem
+
+Release User Engagement:
   - Goals in database for things like "fully answer five questions"
     or "submit a question to the site"
   - Show current goal progress when improving recommendations
   - Very basic karma tracking
-  - MailChimp, with at least one reminder email in some capacity
-    - Double opt-in sign-up
-    - Install Hominid gem
+
+Release - Slush Bucket:
+
   - Company-only question type, very fixed questions
     - "How well did you like working at X?"
     - "Is X still in business and able to hire?"
