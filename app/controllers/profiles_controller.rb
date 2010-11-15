@@ -19,6 +19,9 @@ class ProfilesController < ApplicationController
     all_matches = UtterlyNaiveMatch.where(:profile_id => pid)
     my_jobs = current_user.profile.jobs.map(&:id)
 
+    @perfect_answers = Answer.where(:profile_id => pid,
+                                :answer_type => Answer::PERFECT_COMPANY_ANSWER)
+
     # Order the matches appropriately (by match_confidence, descending)
     @matches = all_matches.sort_by {|match| -match.match_confidence}
     @matches = @matches.select {|match| match.match_confidence >= 0.05 &&

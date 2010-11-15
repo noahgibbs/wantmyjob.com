@@ -24,6 +24,13 @@
       Last recalculate: <%= distance_of_time_in_words(@last_match_time,
                                                       Time.now) %> ago
     </div>
+  <% elsif @perfect_answers.size < 3 %>
+    <div>
+      It doesn't look like you've answered enough of the questions
+      I'll need for matching.  Want to
+      <%= link_to("answer more?",
+                  :controller => :questions, :action => :answer) %>
+    </div>
   <% else %>
     <div>
       I'm not finding any matches.  Hit the "recalculate" button below
