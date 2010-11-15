@@ -2,7 +2,7 @@ body {
   margin:0px;
   padding:0px;
   color:#ccc;
-  font-family: 'Crimson Text', arial, serif;
+  font-family: 'Cantarell', arial, serif;
   font-size:15px;
   line-height:1.5em; 
   background-color: #1c435c;
@@ -24,6 +24,8 @@ p { margin: 0px; padding: 0 0 10px 0; }
 img { border: none; }
 
 h1, h2, h3, h4, h5 { font-weight: normal; }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', arial, serif; }
 
 h1 { font-size: 40px; color: #333; margin: 0 0 30px 0; padding: 5px 0; }
 h2 { font-size: 28px; color: #fff; margin: 20px 0 20px 0; padding: 0; }
