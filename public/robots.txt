@@ -1,5 +1,8 @@
 # See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
 #
-# To ban all spiders from the entire site uncomment the next two lines:
+# Turn robots away from pages that require a site login:
 User-Agent: *
-Disallow:
+Disallow: /home/portal
+Disallow: /profiles/show_matches
+Disallow: /profiles/me
+Disallow: /questions/answer
