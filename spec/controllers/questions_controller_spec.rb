@@ -10,9 +10,9 @@ describe QuestionsController do
   end
 
   describe "POST enter_post" do
-    it "should redirect to the portal" do
+    it "should redirect to entering questions" do
       post :enter_post, :jobs => [{}]
-      should redirect_to(:controller => :home, :action => :portal)
+      should redirect_to(:controller => :questions, :action => :enter)
     end
   end
 
