@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101124050014) do
+ActiveRecord::Schema.define(:version => 20101124060002) do
 
   create_table "answers", :force => true do |t|
     t.integer "job_id"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20101124050014) do
     t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "soft_deleted",                :default => false
     t.string   "search_code",  :limit => 200
   end
 
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20101124050014) do
     t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "soft_deleted",                :default => false
   end
 
   create_table "notes", :force => true do |t|
@@ -83,8 +81,7 @@ ActiveRecord::Schema.define(:version => 20101124050014) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "demo"
-    t.boolean  "soft_deleted", :default => false
-    t.boolean  "current",      :default => true,  :null => false
+    t.boolean  "current",     :default => true, :null => false
   end
 
   create_table "question_answers", :force => true do |t|
@@ -102,7 +99,6 @@ ActiveRecord::Schema.define(:version => 20101124050014) do
     t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "soft_deleted",  :default => false
   end
 
   create_table "statistics", :force => true do |t|
@@ -173,7 +169,6 @@ ActiveRecord::Schema.define(:version => 20101124050014) do
     t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "soft_deleted",                :default => false
     t.string   "search_code",  :limit => 200
   end
 

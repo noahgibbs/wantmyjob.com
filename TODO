@@ -1,6 +1,5 @@
 Internal Rolling Release, Infrastructure:
   - Turn on paper_trail
-    - remove soft_delete flag from all models
   - Move various match actions into matches controller
   - Specs for UtterlyNaiveMatch calculations
   - Install Vanity for A/B testing
