@@ -11,11 +11,12 @@ Release MVP:
     - Some kind of summary of what we know about the company
     - Browsable by casual users and bots
 
-Release Modestly Viral:
-  - Demo profiles
-  - Enter a bunch of demo profiles for Joe Corporate, Bob Agile, etc
-  - Allow you to evaluate your company on those criteria
-  - Add HTML snippets to use as memes
+Release Get People Hired:
+  - Company-only question type, very fixed questions
+    - "How well did you like working at X?"
+    - "Is X still in business and able to hire?"
+  - Submit resume through WMJ
+    - Add resume to profile
 
 Release User Retention:
   - MailChimp, with at least one reminder email in some capacity
@@ -28,10 +29,11 @@ Release User Engagement:
   - Show current goal progress when improving recommendations
   - Very basic karma tracking
 
-Release Get People Hired:
-  - Company-only question type, very fixed questions
-    - "How well did you like working at X?"
-    - "Is X still in business and able to hire?"
+Release Modestly Viral:
+  - Demo profiles
+  - Enter a bunch of demo profiles for Joe Corporate, Bob Agile, etc
+  - Allow you to evaluate your company on those criteria
+  - Add HTML snippets to use as memes
 
 Important, but probably not release 1:
 
