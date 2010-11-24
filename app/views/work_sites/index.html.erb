@@ -2,6 +2,8 @@
 
 <table>
   <tr>
+    <th> Company Name </th>
+    <th> Linked? </th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +11,8 @@
 
 <% @work_sites.each do |work_site| %>
   <tr>
+    <td><%= work_site.checked_company_name %></td>
+    <td><%= work_site.company_id ? "Yes" : "No" %></td>
     <td><%= link_to 'Show', work_site %></td>
     <td><%= link_to 'Edit', edit_work_site_path(work_site) %></td>
     <td><%= link_to 'Destroy', work_site, :confirm => 'Are you sure?', :method => :delete %></td>
