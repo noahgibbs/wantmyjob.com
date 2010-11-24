@@ -1,5 +1,30 @@
-<p id="notice"><%= notice %></p>
+<p>
+  Company Name: <%= @work_site.company_name %>
+</p>
 
+<p>
+  Company: <%= @work_site.company_id ?
+               link_to(@work_site.company.company_name,
+                       :controller => :companies, :action => :show,
+                         :id => @work_site.company_id) :
+               "--" %>
+</p>
+
+<p>
+  Search Code: <%= @work_site.search_code %> <br/>
+</p>
+
+<p>
+  Verified: <%= @work_site.verified %>
+</p>
+
+<p>
+  Description: <%= @work_site.description %>
+</p>
+
+<p>
+  Address: <%= @work_site.address %>
+</p>
 
 <%= link_to 'Edit', edit_work_site_path(@work_site) %> |
 <%= link_to 'Back', work_sites_path %>
