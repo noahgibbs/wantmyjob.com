@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe CompaniesController do
+  include AppSpecHelpers
 
   def mock_company(stubs={})
     (@mock_company ||= mock_model(Company).as_null_object).tap do |company|
