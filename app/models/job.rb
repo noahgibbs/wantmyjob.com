@@ -8,7 +8,7 @@ class Job < ActiveRecord::Base
 
   def employer
     @employer ||= work_site.company_name
-    @employer = work_site.company.name if !@employer && work_site.company
+    @employer ||= work_site.company.company_name if work_site.company
     @employer
   end
 

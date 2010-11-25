@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   has_many :work_sites
+  has_many :jobs, :through => :work_sites
 
   IGNORED_WORDS = {
     "inc" => true,
@@ -23,6 +24,7 @@ class Company < ActiveRecord::Base
   end
 
   def self.generate_search_code(company_name)
+    return "" unless company_name
     words = company_name.split(/(\w+)/).select {|w| w =~ /\w+/}.map(&:downcase)
     words = words.select {|w| !IGNORED_WORDS.include?(w)}
 
