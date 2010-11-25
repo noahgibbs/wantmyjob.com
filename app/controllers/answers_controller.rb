@@ -1,4 +1,7 @@
 class AnswersController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :requires_admin
+
   respond_to :html
 
   def match_all_profiles
