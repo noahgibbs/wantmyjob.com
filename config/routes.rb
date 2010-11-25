@@ -7,7 +7,11 @@ Wantmyjob::Application.routes.draw do
     end
   end
 
-  resources :work_sites
+  resources :work_sites do
+    member do
+      post :companify
+    end
+  end
 
   resources :jobs do
     collection do

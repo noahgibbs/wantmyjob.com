@@ -1,6 +1,24 @@
 class WorkSitesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :requires_admin, :only => SCAFFOLD_ACTIONS
+  before_filter :requires_admin
+
+  def companify
+    redirect_to :action => :show, :id => params[:id]
+    work_site = WorkSite.find(params[:id])
+
+    if work_site.company_id
+      flash[:warning] = "This work site already has a company!"
+      return # follow the redirect
+    end
+
+    company = Company.new(:company_name => work_site.company_name)
+    company.save!
+    flash[:notice] = "Saved this company name as a new company."
+
+    work_site.company_name = nil
+    work_site.company_id = company.id
+    work_site.save
+  end
 
   # GET /work_sites
   # GET /work_sites.xml
@@ -17,6 +35,8 @@ class WorkSitesController < ApplicationController
   # GET /work_sites/1.xml
   def show
     @work_site = WorkSite.find(params[:id])
+
+    @companies = Company.where(:search_code => @work_site.search_code)
 
     respond_to do |format|
       format.html # show.html.erb

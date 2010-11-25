@@ -20,6 +20,32 @@
   <%= @company.search_code %>
 </p>
 
+<hr />
+
+<p>
+  Jobs at this company:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Profile</th>
+      <th>Title</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @company.jobs.each do |job| %>
+      <tr>
+        <td> <%= job.profile.human_name %> </td>
+        <td> <%= job.title %> </td>
+        <td> <%= job.start_date %> </td>
+        <td> <%= job.end_date %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

@@ -28,3 +28,25 @@
 
 <%= link_to 'Edit', edit_work_site_path(@work_site) %> |
 <%= link_to 'Back', work_sites_path %>
+
+<% unless @work_site.company_id %>
+
+  <hr/>
+
+  <p>
+    Companies with similar names:
+  </p>
+
+  <%= form_tag do %>
+     <%= select_tag("company",
+          options_from_collection_for_select(@companies, :id, :company_name)) %>
+
+     <%= submit_tag "Merge with Company" %>
+  <% end %>
+
+  <hr/>
+
+  <%= form_tag(:action => :companify, :id => @work_site.id) do %>
+    <%= submit_tag "Turn into Separate Company" %>
+  <% end %>
+<% end %>
