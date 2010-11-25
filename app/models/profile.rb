@@ -3,6 +3,10 @@ class Profile < ActiveRecord::Base
   has_many :jobs
   has_many :utterly_naive_matches
 
+  def human_name
+    fullname || user.login
+  end
+
   # This should be protected.  According to the RSpec mailing list,
   # I should probably be factoring this out into a separate public
   # class and testing it that way.  Sounds really ugly.
