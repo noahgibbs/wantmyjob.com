@@ -18,6 +18,8 @@ class Company < ActiveRecord::Base
     "center" => true,
   }
 
+  before_save :generate_search_code
+
   def generate_search_code
     return if search_code && !company_name_changed?
     self.search_code = Company.generate_search_code(company_name)
