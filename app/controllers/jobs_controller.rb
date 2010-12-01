@@ -2,6 +2,8 @@ class JobsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :requires_admin, :except => [:edit, :enter, :enter_post]
 
+  respond_to :html
+
   # Action for entering a list of new jobs
   def enter
     @jobs = Job.new

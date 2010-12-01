@@ -2,6 +2,8 @@ class QuestionAnswersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :requires_admin
 
+  respond_to :html
+
   # GET /question_answers
   # GET /question_answers.xml
   def index

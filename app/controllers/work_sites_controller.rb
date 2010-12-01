@@ -2,6 +2,8 @@ class WorkSitesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :requires_admin
 
+  respond_to :html
+
   def companify
     redirect_to :action => :show, :id => params[:id]
     work_site = WorkSite.find(params[:id])

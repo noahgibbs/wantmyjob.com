@@ -2,6 +2,8 @@ class AdminController < ApplicationController
   before_filter :authenticate_user!
   before_filter :requires_admin
 
+  respond_to :html
+
   ["profile", "user", "question", "job"].each do |item|
     expose(("new_" + item + "s").to_sym) do
       klass = Object.const_get(item.capitalize)
