@@ -36,7 +36,7 @@ class WorkSitesController < ApplicationController
   def show
     @work_site = WorkSite.find(params[:id])
 
-    @companies = Company.where(:search_code => @work_site.search_code)
+    @companies = Company.all
 
     respond_to do |format|
       format.html # show.html.erb
