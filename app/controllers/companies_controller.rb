@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :requires_admin
+  before_filter :authenticate_user!, :except => [:show]
+  before_filter :requires_admin, :except => [:show]
 
   # GET /companies
   # GET /companies.xml
