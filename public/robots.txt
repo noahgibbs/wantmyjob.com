@@ -6,3 +6,4 @@ Disallow: /home/portal
 Disallow: /profiles/show_matches
 Disallow: /profiles/me
 Disallow: /questions/answer
+Allow: /companies
