@@ -17,6 +17,8 @@ class CompaniesController < ApplicationController
   # GET /companies/1.xml
   def show
     @company = Company.find(params[:id])
+    @matches = UtterlyNaiveMatch.where(:profile_id => current_user.profile.id,
+                                       :job_id => @company.jobs) if current_user
 
     respond_to do |format|
       format.html # show.html.erb
