@@ -1,8 +1,12 @@
 <% big_center_text @company.company_name %>
 
-<p id="notice"><%= notice %></p>
+<% if @company.url && !@company.url.empty? %>
+  <p>
+    <%= link_to("#{@company.company_name}'s Site", @company.url) %>
+  </p>
+<% end %>
 
-<% if @company.apply_email %>
+<% if @company.apply_email && !@company.apply_email.empty? %>
   <p>
     Apply for a job at &quot;<%= @company.apply_email %>&quot;
   </p>
