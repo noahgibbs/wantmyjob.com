@@ -2,14 +2,32 @@
 
 <p id="notice"><%= notice %></p>
 
+<% if @company.apply_email %>
+  <p>
+    Apply for a job at &quot;<%= @company.apply_email %>&quot;
+  </p>
+<% end %>
 
+<% if !current_user %>
+  <p>
+    How well do you match the
+    <%= @company.jobs.size > 1 ? "#{@company.jobs.size} jobs" : "job" %>
+    we rate at <%= @company.company_name %>?
+    <%= link_to('Log in', new_user_session_path) %> or
+    <%= link_to('create an account', new_user_registration_path) %>
+    to find out!
+  </p>
+<% elsif @matches && !@matches.empty? %>
+  <p>
+    Your matches with this company:
+  </p>
 
-<p>
-  <b>Apply email:</b>
-  <%= @company.apply_email %>
-</p>
+  <%= render :partial => "matches/match_table" %>
+<% end %>
 
 <% if current_user && current_user.admin? %>
+
+  <hr />
 
   <p>
     <b>Search Code:</b>
