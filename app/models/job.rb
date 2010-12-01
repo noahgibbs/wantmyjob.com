@@ -12,6 +12,7 @@ class Job < ActiveRecord::Base
   include ActionView::Helpers::UrlHelper
 
   def employer_link
+    return "" unless work_site
     co = work_site.company
     if co
       return ("#{link_to(co.company_name, '/companies/' + co.id.to_s)} " +
@@ -22,8 +23,8 @@ class Job < ActiveRecord::Base
   end
 
   def employer
-    @employer ||= work_site.company_name
-    @employer ||= work_site.company.company_name if work_site.company
+    @employer ||= work_site.company_name if work_site
+    @employer ||= work_site.company.company_name if work_site && work_site.company
     @employer
   end
 
