@@ -16,14 +16,17 @@
 
     <p>
       New Users Today (<%= new_users.count %>):
-        <%= new_users.map(&:login).join(", ") %>  <br/>
+        <%= new_users.map {|u| user_to_link(u)}.join(", ") %>  <br/>
       New Profiles Today (<%= new_profiles.count %>):
-        <%= new_profiles.map(&:fullname).join(", ") %>  <br/>
+        <%= new_profiles.map {|p| profile_to_link(p)}.join(", ") %>  <br/>
       New Questions Today: <%= new_questions.count %> <br/>
       Total Answers: <%= Answer.count %> <br/>
       New Jobs Today (<%= new_jobs.count %>):
-        <%= new_jobs.map(&:employer).join(", ") %> <br/>
+        <%= new_jobs.map {|j| job_to_link(j)}.join(", ") %> <br/>
     </p>
   </div>
 
+  <hr />
+
+  <%= link_to("Stats feed", notes_path) %>
 </div>
