@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th> Employer </th>
+    <th> Job Title </th>
+    <th> &nbsp; &nbsp; &nbsp; Match Confidence </th>
+  </tr>
+  <% @matches.each do |match| %>
+    <tr>
+      <td> <%= link_to(match.job.employer || "Unspecified",
+                       :controller => :matches, :action => :show,
+                       :id => match.id) %> </td>
+      <td> <%= match.job.title %> </td>
+      <td class="cpa_column"> <%= match.match_percent %> </td>
+    </tr>
+  <% end %>
+</table>
