@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101124060002) do
+ActiveRecord::Schema.define(:version => 20101201052346) do
 
   create_table "answers", :force => true do |t|
     t.integer "job_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20101124060002) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "search_code",  :limit => 200
+    t.string   "url",          :limit => 200
   end
 
   create_table "delayed_jobs", :force => true do |t|
