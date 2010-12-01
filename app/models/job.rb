@@ -5,6 +5,8 @@ class Job < ActiveRecord::Base
   has_many :utterly_naive_matches
   has_one :company, :through => :work_site
 
+  attr_accessible :title, :start_date, :end_date, :profile_id
+
   before_save :check_employer
 
   include ActionView::Helpers::UrlHelper

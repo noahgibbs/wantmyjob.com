@@ -3,6 +3,8 @@ class Question < ActiveRecord::Base
            :autosave => true
   has_many :answers
 
+  attr_accessible :question_type, :text
+
   MAX_ANSWERS = 5
 
   # Question types define how the Question object and its

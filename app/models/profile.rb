@@ -3,6 +3,9 @@ class Profile < ActiveRecord::Base
   has_many :jobs
   has_many :utterly_naive_matches
 
+  attr_accessible :fullname, :birth_day, :birth_month, :birth_year,
+    :gender, :time_zone, :address, :country, :state
+
   def human_name
     fullname || user.login
   end
