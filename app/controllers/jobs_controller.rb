@@ -10,15 +10,18 @@ class JobsController < ApplicationController
   end
 
   def enter_post
-    jobs = []
     params[:jobs].each do |job_hash|
       next if (job_hash[:employer].nil? || job_hash[:employer].empty?) &&
         (job_hash[:title].nil? || job_hash[:title].empty?)
 
-      jobs << Job.new(job_hash.merge(:profile_id => current_user.profile.id))
+      job = Job.new job_hash
+      job.profile = current_user.profile
+      if job_hash[:employer] && !job_hash[:employer].empty?
+        job.work_site = WorkSite.new(:company_name => job_hash[:employer])
+        job.work_site.save!
+      end
+      job.save!
     end
-
-    jobs.each(&:save!)
 
     redirect_to :controller => :questions, :action => :answer
   end
