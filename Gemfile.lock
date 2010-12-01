@@ -123,6 +123,8 @@ GEM
     rspec-rails (2.0.1)
       rspec (~> 2.0.0)
     rubyzip (0.9.4)
+    seed-fu (2.0.1)
+      activerecord (~> 3.0.0)
     selenium-webdriver (0.0.29)
       childprocess (>= 0.0.7)
       ffi (~> 0.6.3)
@@ -155,5 +157,6 @@ DEPENDENCIES
   rails (= 3.0.0)
   rails3-generators
   rspec-rails (~> 2.0.0.beta.22)
+  seed-fu
   sqlite3-ruby
   statistics2
