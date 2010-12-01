@@ -5,6 +5,16 @@ Internal Rolling Release, Infrastructure:
   - Install Vanity for A/B testing
   - Set "respond_to :html" on all controllers
   - Set "attr_accessible" on all models
+  - Way to become a user from admin:
+      class AdminController < ApplicationController
+        before_filter authenticate_user!
+
+        def become
+          return unless current_user.is_an_admin?
+          sign_in(:user, User.find(params[:id]))
+          redirect_to root_path
+        end
+      end
 
 Release MVP:
   - Add very early company pages for things that might all be the
