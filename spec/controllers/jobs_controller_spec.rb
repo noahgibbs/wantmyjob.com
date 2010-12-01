@@ -20,22 +20,27 @@ describe JobsController do
       PARAMS3 = { "title" => "Senior Vice-Chancellor"}
 
       job = mock_model(Job)
+      work_site = mock_model(WorkSite)
       profile = mock_model(Profile)
 
       mock_user.stub(:profile) { profile }
       create_times = 0
       Job.should_receive(:new).exactly(3).times.and_return(job) { |args|
         case create_times
-          when 0: args.should == PARAMS1.merge("profile_id" => profile.id)
-          when 1: args.should == PARAMS2.merge("profile_id" => profile.id)
-          when 2: args.should == PARAMS3.merge("profile_id" => profile.id)
+          when 0: args.should == PARAMS1
+          when 1: args.should == PARAMS2
+          when 2: args.should == PARAMS3
           else raise "Job.new should only be called three times!"
         end
 
         create_times += 1
         job
       }
+      job.should_receive(:profile=).exactly(3).times
+      job.should_receive(:work_site=).exactly(2).times
       job.should_receive(:save!).exactly(3).times
+      job.stub(:work_site) { work_site }
+      work_site.should_receive(:save!).exactly(2).times # One employer is blank
 
       post :enter_post,
            :jobs => [{ "employer" => "BogoMIPS", "title" => "Yahoo"},
