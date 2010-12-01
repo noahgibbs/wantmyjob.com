@@ -28,5 +28,15 @@
 
   <hr />
 
+  <%= form_tag(:action => :become_user) do %>
+    <p> Log in as: </p>
+
+    <%= select_tag("user_id",
+                   options_from_collection_for_select(users, :id, :login)) %>
+    <%= submit_tag "Change User" %>
+  <% end %>
+
+  <hr />
+
   <%= link_to("Stats feed", notes_path) %>
 </div>

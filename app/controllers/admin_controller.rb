@@ -12,7 +12,13 @@ class AdminController < ApplicationController
   end
 
   expose(:questions_to_approve) { Question.unverified }
+  expose(:users) { User.all }
 
-  def console
+  def become_user
+    return unless current_user.admin?  # Duplicate check
+    user = User.find(params[:user_id])
+    sign_in(:user, user)
+    flash[:notice] = "Logged in as #{user.login}"
+    redirect_to :controller => :home, :action => :index
   end
 end

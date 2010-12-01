@@ -3,17 +3,6 @@ Internal Rolling Release, Infrastructure:
   - Move various match actions into matches controller
   - Specs for UtterlyNaiveMatch calculations
   - Install Vanity for A/B testing
-  - Set "attr_accessible" on all models
-  - Way to become a user from admin:
-      class AdminController < ApplicationController
-        before_filter authenticate_user!
-
-        def become
-          return unless current_user.is_an_admin?
-          sign_in(:user, User.find(params[:id]))
-          redirect_to root_path
-        end
-      end
 
 Release Get People Hired:
   - Company-only question type, very fixed questions

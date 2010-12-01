@@ -60,6 +60,7 @@ Wantmyjob::Application.routes.draw do
 
   # Admin tools
   match '/admin/console' => 'admin#console'
+  match '/admin/become_user' => 'admin#become_user', :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
