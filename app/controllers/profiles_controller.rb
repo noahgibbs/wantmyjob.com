@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
 
   def clear_matches
     UtterlyNaiveMatch.where(current_user.profile.id).delete_all
-    redirect_to :controller => :home, :action => :suggest
+    redirect_to :controller => :profiles, :action => :show_matches
   end
 
   def show_matches

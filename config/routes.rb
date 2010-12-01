@@ -51,7 +51,6 @@ Wantmyjob::Application.routes.draw do
   match '/home/portal' => 'home#portal', :as => 'user_root'
 
   # Random one-off matches
-  match '/home/suggest' => 'home#suggest'
   match '/about' => 'home#about'
   match '/privacy' => 'home#privacy'
 
