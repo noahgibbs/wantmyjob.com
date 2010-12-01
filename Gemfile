@@ -42,6 +42,8 @@ end
 group :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem "database_cleaner"
+  gem 'spork'
+  gem 'launchy'
 end
 
 # Dev-and-test gems -- usually for test-environment tools that
@@ -53,4 +55,6 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "rails3-generators"
   gem "autotest"
+  gem 'cucumber'
+  gem 'cucumber-rails'
 end
