@@ -3,8 +3,21 @@ class Job < ActiveRecord::Base
   belongs_to :profile
   has_many :answers
   has_many :utterly_naive_matches
+  has_one :company, :through => :work_site
 
   before_save :check_employer
+
+  include ActionView::Helpers::UrlHelper
+
+  def employer_link
+    co = work_site.company
+    if co
+      return ("#{link_to(co.company_name, '/companies/' + co.id.to_s)} " +
+        "(#{link_to('location', '/work_sites/' + work_site.id.to_s)})").html_safe
+    end
+
+    link_to(work_site.company_name + " (unmerged)", "/work_sites/#{work_site.id}")
+  end
 
   def employer
     @employer ||= work_site.company_name
