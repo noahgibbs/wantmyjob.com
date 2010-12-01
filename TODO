@@ -46,6 +46,12 @@ Usability:
   - Cut down on the number of redirects
     - Remove home/portal
 
+Robustness:
+
+  - More testing of blank employer names
+  - More specification of *which* employer -- for instance, when you worked
+    there
+
 Formatting and Prettiness:
 
   - Custom 404 page
