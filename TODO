@@ -6,10 +6,6 @@ Internal Rolling Release, Infrastructure:
   - Install Vanity for A/B testing
 
 Release Get People Hired:
-  - Company-only question type, very fixed questions
-    - "How well did you like working at X?"
-    - "Is X still in business and able to hire?"
-    - Add them through seed-fu
   - Submit resume through WMJ
     - Add resume to profile
   - Manually add jobs email addresses to site
