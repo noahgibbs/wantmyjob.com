@@ -1,4 +1,5 @@
 Internal Rolling Release, Infrastructure:
+  - Cucumber tests for login, user creation and job entry
   - Turn on paper_trail
   - Move various match actions into matches controller
   - Specs for UtterlyNaiveMatch calculations
@@ -34,7 +35,6 @@ Release Modestly Viral:
 
 Important, but probably not release 1:
 
-  - Cucumber tests
   - Figure skipped questions into Wilson score somehow
   - Use delayed_job for updating matches
   - Add test verifying that only questions marked verified are asked
@@ -49,14 +49,14 @@ Usability:
 Robustness:
 
   - More testing of blank employer names
-  - More specification of *which* employer -- for instance, when you worked
-    there
+  - More description of *which* employer -- for instance, when you worked
+    there -- when asking questions and showing job lists
 
 Formatting and Prettiness:
 
   - Custom 404 page
   - Trim invalid links from various devise and registration views
-  - Update flash containers
+  - Update flash containers to new color scheme
 
 Promotion:
 
