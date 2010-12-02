@@ -62,6 +62,7 @@ class Profile < ActiveRecord::Base
     job = nil
     if use_perfect
       used_questions = answers.select {|a| a.answer_type == Answer::PERFECT_COMPANY_ANSWER }.map(&:question_id)
+      questions = questions.select {|q| q.question_type != Question::WORKPLACE_QUESTION}
 
       question = Question.find((questions.map(&:id) - used_questions).sample)
       answer_type = Answer::PERFECT_COMPANY_ANSWER
