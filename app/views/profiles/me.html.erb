@@ -14,6 +14,14 @@
     that job you had."  That's the plan.
   </p>
 
+  <h2> Your Resume </h2>
+
+  <%= form_for(profile, :action => :update_resume) do |f| %>
+    <%= f.label :resume %> (Your text or HTML resume, to be emailed)<br/>
+    <%= f.text_area :resume %> <br/>
+    <%= f.submit "Update Resume" %>
+  <% end %>
+
   <h2> Your Jobs </h2>
 
   <table>

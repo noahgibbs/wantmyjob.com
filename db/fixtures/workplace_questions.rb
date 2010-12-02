@@ -30,7 +30,7 @@ def seed_workplace_question(question_text, answers)
 end
 
 seed_workplace_question("Does <company> still exist and hire people?",
-                        ["Yes", "No"])
+                        ["Yes", "No", "Not Right Now"])
 seed_workplace_question("How well did you like working at <company>?",
                         ["It was awful", "It was bad", "Just a job",
                          "I enjoyed it", "I'd have done it for free"])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201052346) do
+ActiveRecord::Schema.define(:version => 20101202135847) do
 
   create_table "answers", :force => true do |t|
     t.integer "job_id"
@@ -82,7 +82,8 @@ ActiveRecord::Schema.define(:version => 20101201052346) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "demo"
-    t.boolean  "current",     :default => true, :null => false
+    t.boolean  "current",                         :default => true, :null => false
+    t.text     "resume",      :limit => 16777215
   end
 
   create_table "question_answers", :force => true do |t|

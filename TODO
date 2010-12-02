@@ -7,9 +7,8 @@ Internal Rolling Release, Infrastructure:
 
 Release Get People Hired:
   - Submit resume through WMJ
-    - Add resume to profile
   - Manually add jobs email addresses to site
-    - Set up company entries on site
+    - Manually set up company entries on site
 
 Release User Retention:
   - MailChimp, with at least one reminder email in some capacity
@@ -30,7 +29,6 @@ Release Modestly Viral:
   - Add HTML snippets to use as memes
 
 Important, but probably not release 1:
-
   - Figure skipped questions into Wilson score somehow
   - Use delayed_job for updating matches
   - Add test verifying that only questions marked verified are asked
@@ -41,6 +39,7 @@ Usability:
     entered, unless that date has been changed manually at some point
   - Cut down on the number of redirects
     - Remove home/portal
+  - Redesign profile page
 
 Robustness:
 
