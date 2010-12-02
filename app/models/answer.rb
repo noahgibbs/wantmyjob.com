@@ -8,7 +8,9 @@ class Answer < ActiveRecord::Base
   # There are many fine Answer Types, which correspond
   # only somewhat to question types.  For instance,
   # an EMPLOYER_QUESTION can be answered with a
-  # COMPANY_ANSWER or a PERFECT_COMPANY_ANSWER.
+  # COMPANY_ANSWER or a PERFECT_COMPANY_ANSWER, while
+  # a WORKPLACE_QUESTION can only be answered with
+  # a COMPANY_ANSWER.
 
   COMPANY_ANSWER = 1
   PERFECT_COMPANY_ANSWER = 2

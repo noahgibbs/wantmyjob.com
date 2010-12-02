@@ -25,13 +25,27 @@ class Profile < ActiveRecord::Base
     n_questions = questions.count
     n_pc_answers = answers.size - co_answers.size
 
+    co_empty_spots = 0
+    pc_empty_spots = 0
+    questions.each do |question|
+      case question.question_type
+        when Question::EMPLOYER_QUESTION:
+          co_empty_spots += jobs.size
+          pc_empty_spots += 1
+        when Question::WORKPLACE_QUESTION:
+          co_empty_spots += jobs.size
+        else
+          raise "Unknown question type #{question.question_type}!"
+      end
+    end
+
     # There should be samples * (1 + num_jobs) total possible answers here.
     # We want to randomize proportionally to the non-answered stuff.
     # So every combination with no answer is a 'chance', and we count
     # perfect-company chances and regular-company chances.
 
-    co_chances = n_questions * jobs.size - co_answers.size
-    pc_chances = n_questions - n_pc_answers
+    co_chances = co_empty_spots - co_answers.size
+    pc_chances = pc_empty_spots - n_pc_answers
 
     co_odds = (0.0 + co_chances) / (0.0 + co_chances + pc_chances)
 
