@@ -1,0 +1,5 @@
+git pull --rebase
+wmjruby bundle install
+wmjrake db:migrate
+wmjrake db:seed_fu
+touch tmp/restart.txt
