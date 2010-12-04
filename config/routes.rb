@@ -48,7 +48,7 @@ Wantmyjob::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   # Landing page on login
-  match '/home/portal' => 'home#portal', :as => 'user_root'
+  match '/home/portal' => 'home#portal'
 
   # Random one-off matches
   match '/about' => 'home#about'
