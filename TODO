@@ -1,9 +1,12 @@
 Internal Rolling Release, Infrastructure:
   - Cucumber test for job entry
+  - Cucumber test for answering questions
+  - Cucumber test for calculating matches and seeing them
   - Turn on paper_trail
   - Move various match actions into matches controller
   - Specs for UtterlyNaiveMatch calculations
   - Install Vanity for A/B testing
+  - Use delayed_job for updating matches
 
 Release User Retention:
   - MailChimp, with at least one reminder email in some capacity
@@ -33,7 +36,6 @@ Release Modestly Viral:
 
 Important, but probably not release 1:
   - Figure skipped questions into Wilson score somehow
-  - Use delayed_job for updating matches
   - Add test verifying that only questions marked verified are asked
 
 Usability:
