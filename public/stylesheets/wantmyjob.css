@@ -294,6 +294,12 @@ cite span { color: #fff; }
   border: solid 1px #DD9A24;
 }
 
+.flash_alert {
+  color: #000;
+  background-color: #DD9A24;
+  border: solid 1px #DD9A24;
+}
+
 .flash_error {
   color: #000;
   background-color: #FCC;
