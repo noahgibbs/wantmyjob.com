@@ -1,5 +1,7 @@
+(Find current git revision, in case we need to roll back?)
 git pull --rebase
 wmjruby bundle install
 wmjrake db:migrate
 wmjrake db:seed_fu
 touch tmp/restart.txt
+wmj_rake spec

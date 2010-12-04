@@ -23,8 +23,13 @@ class Job < ActiveRecord::Base
   end
 
   def employer
-    @employer ||= work_site.company_name if work_site
-    @employer ||= work_site.company.company_name if work_site && work_site.company
+    if work_site
+      @employer ||= work_site.company_name
+    end
+
+    if work_site && work_site.company
+      @employer ||= work_site.company.company_name
+    end
     @employer
   end
 
@@ -35,7 +40,7 @@ class Job < ActiveRecord::Base
   protected
 
   # If an "employer" field is set, and the work site isn't
-  # already known, 
+  # already known
   def check_employer
     return unless self.employer
     if self.work_site_id
