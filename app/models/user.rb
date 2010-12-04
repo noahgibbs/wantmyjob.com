@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :password, :password_confirmation,
     :remember_me
 
-  #validate :login, :uniqueness => true
+  validate :login, :uniqueness => true
   #validate :email, :uniqueness => true
 
   def self.find_for_database_authentication(conditions = {})
