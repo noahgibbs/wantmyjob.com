@@ -38,9 +38,9 @@ class ProfilesController < ApplicationController
   def recalculate_matches
     pid = current_user.profile.id
     one_match = UtterlyNaiveMatch.where(:profile_id => pid).limit(1)
-    last_match_time = one_match.first.updated_at
+    last_match_time = one_match.empty ? nil : one_match.first.updated_at
 
-    if (Time.now - last_match_time > 10.minutes)
+    if (last_match_time && (Time.now - last_match_time > 10.minutes))
       flash[:notice] = "We just recalculated your matches."
       UtterlyNaiveMatch.create_matches_for current_user.profile
     else
