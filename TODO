@@ -1,20 +1,20 @@
 Internal Rolling Release, Infrastructure:
-  - Cucumber tests for login, user creation and job entry
+  - Cucumber tests job entry
   - Turn on paper_trail
   - Move various match actions into matches controller
   - Specs for UtterlyNaiveMatch calculations
   - Install Vanity for A/B testing
-
-Release Get People Hired:
-  - Submit resume through WMJ
-  - Manually add jobs email addresses to site
-    - Manually set up company entries on site
 
 Release User Retention:
   - MailChimp, with at least one reminder email in some capacity
     - pseudo-transactional emails
     - Double opt-in sign-up
     - Install Hominid gem
+
+Release Get People Hired:
+  - Submit resume through WMJ
+  - Manually add jobs email addresses to site
+    - Manually set up company entries on site
 
 Release User Engagement:
   - Goals in database for things like "fully answer five questions"
