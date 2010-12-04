@@ -13,6 +13,7 @@ gem "paper_trail"
 gem "statistics2"
 gem "hoptoad_notifier"
 gem "seed-fu"
+gem "hominid"
 
 # Deploy with Capistrano
 # gem 'capistrano'

@@ -81,6 +81,8 @@ GEM
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
+    hominid (2.2.0)
+      json (>= 1.2.0)
     hoptoad_notifier (2.3.12)
       activesupport
       builder
@@ -170,6 +172,7 @@ DEPENDENCIES
   delayed_job!
   devise (~> 1.1.2)
   factory_girl_rails
+  hominid
   hoptoad_notifier
   launchy
   mongrel
