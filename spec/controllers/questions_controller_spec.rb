@@ -48,7 +48,7 @@ describe QuestionsController do
         :answer => { :data1 => "271", :data2 => "35", :data3 => "",
                      :data4 => "0", :profile_id => 7,
                      :answer_type => 1, :question_id => 4, :job_id => 6 }
-      should redirect_to(:controller => :home, :action => :portal)
+      response.should be_redirect
     end
 
     it "works properly with sub-keys and bad data" do
@@ -63,7 +63,7 @@ describe QuestionsController do
                      :data2_7 => "19", :data3 => nil,
                      :data4 => "0", :profile_id => 7,
                      :answer_type => 1, :question_id => 4, :job_id => 6 }
-      should redirect_to(:controller => :home, :action => :portal)
+      response.should be_redirect
     end
   end
 

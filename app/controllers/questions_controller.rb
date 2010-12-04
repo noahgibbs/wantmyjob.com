@@ -53,8 +53,7 @@ class QuestionsController < ApplicationController
       a = Answer.new pa
       a.save!
 
-      redirect_to :controller => :home, :action => :portal
-
+      redirect_to_next_step
       return
     end
 
@@ -74,8 +73,7 @@ class QuestionsController < ApplicationController
     a = Answer.new pa
     a.save!
 
-    # TODO:  fix this later to save a redirection?
-    redirect_to :controller => :home, :action => :portal
+    redirect_to_next_step
   end
 
   def enter_post
