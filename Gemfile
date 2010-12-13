@@ -15,6 +15,7 @@ gem "hoptoad_notifier"
 gem "seed-fu"
 gem "hominid"
 gem "acts-as-taggable-on"
+gem "will_paginate"
 
 # Deploy with Capistrano
 # gem 'capistrano'
