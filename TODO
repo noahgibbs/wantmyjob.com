@@ -18,6 +18,10 @@ Release Get People Hired:
   - Manually add jobs email addresses to site
     - Manually set up company entries on site
 
+Release PageRank:
+  - Basic blog on existing template
+  - Convert to show WantMyJob-tagged entries from WMJ, others elsewhere
+
 Release Improve Conversion:
   - Guest login that remembers answers, and asks perfect company questions
   - Ability to convert guest login to named login w/ email
