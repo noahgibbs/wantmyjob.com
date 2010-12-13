@@ -1,7 +1,7 @@
 (Find current git revision, in case we need to roll back?)
 git pull --rebase
 wmj_bundle install
-wmj_rake db:migrate
+RAILS_ENV=production wmj_rake db:migrate
 wmj_rake db:seed_fu
 wmj_rake spec
 wmj_rake cucumber
