@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '>= 3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,6 +14,7 @@ gem "statistics2"
 gem "hoptoad_notifier"
 gem "seed-fu"
 gem "hominid"
+gem "acts-as-taggable-on"
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -51,7 +52,7 @@ end
 # also have generators or similar that you'd like to run from
 # the command line without typing "RAILS_ENV=test rake foo:bar".
 group :development, :test do
-  gem "rspec-rails", "~> 2.0.0.beta.22"
+  gem "rspec-rails", "~> 2.3.0"
   gem "capybara"
   gem "factory_girl_rails"
   gem "rails3-generators"
