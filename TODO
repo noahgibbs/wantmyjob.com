@@ -7,6 +7,7 @@ Internal Rolling Release, Infrastructure:
   - Specs for UtterlyNaiveMatch calculations
   - Install Vanity for A/B testing
   - Use delayed_job for updating matches
+  - Google Analytics async snippet
 
 Release User Retention:
   - MailChimp, with at least one reminder email in some capacity
@@ -20,6 +21,8 @@ Release Get People Hired:
 
 Release PageRank:
   - Basic blog on existing template
+  - Acts-as-taggable-on tags
+  - Migration from old blog SQLite database with old tags
   - Convert to show WantMyJob-tagged entries from WMJ, others elsewhere
 
 Release Improve Conversion:
