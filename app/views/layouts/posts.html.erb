@@ -3,7 +3,7 @@
 <head>
   <title>WMJ: <%= @title ? @title : "Find Your Job" %> </title>
   <meta name="keywords" content="<%= @keywords ? @keywords.join(",") : ""%>" />
-  <meta name="description" content="<%= @description || "A site for peer-to-peer job search" %>" />
+  <meta name="description" content="<%= @description || "Searching for a computer programming or high-tech job" %>" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
@@ -12,7 +12,6 @@
   <link href='http://fonts.googleapis.com/css?family=Crimson+Text&subset=latin' rel='stylesheet' type='text/css'%>
   <link href='http://fonts.googleapis.com/css?family=Cantarell&subset=latin' rel='stylesheet' type='text/css'%>
   <link rel="shortcut icon" href="http://wantmyjob.com/favicon.ico" mce_href="http://wantmyjob.com/favicon.ico" />
-  <meta name="google-site-verification" content="9X05knF7TP7WPc3okWf63cJ-qtbMTWjBlSXD11wVaL8" />
 </head>
 <body>
 
@@ -20,29 +19,29 @@
   <div class="wmj_header">
     <div class="site_title">
       <h1><a href="http://wantmyjob.com" target="_parent">
-        <strong>WantMyJob</strong>
+        <strong>Want My Job?</strong>
         <span>The Right Tech Job.  Now.</span>
       </a></h1>
     </div>
 
     <div class="float_r">
-      WantMyJob Alpha is new with rough edges. <br/>Visit often and watch
-      our progress! <br/>Suggestions to noah_gibbs at yahoo.com. Thanks!
+      WantMyJob Alpha hosts articles about getting a job<br/> as a computer
+      programmer.  Some of it will help other techies, too.
     </div>
   </div>
 
   <div class="wmj_menu">
     <ul>
-      <li><%= link_to("Answer",
-                      :controller => "/home", :action => :portal) %></li>
-      <li><%= link_to("Match",
-                   :controller => "/profiles", :action => :show_matches) %></li>
       <% if current_user %>
+        <li><%= link_to("Answer",
+                        :controller => "/home", :action => :portal) %></li>
+        <li><%= link_to("Match",
+                  :controller => "/profiles", :action => :show_matches) %></li>
         <li><%= link_to("Profile",
                         :controller => "/profiles", :action => :me) %></a></li>
+      <% else %>
+        <li><%= link_to("Find a Job", "/") %></li>
       <% end %>
-      <li><%= link_to("Blog",
-                      :controller => "/posts", :action => :index) %></li>
       <% if current_user && current_user.admin? %>
         <li><a href="/admin/console">Admin</a></li>
       <% end %>

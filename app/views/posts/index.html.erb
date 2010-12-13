@@ -1,0 +1,34 @@
+<% title "Articles about finding your dream Computer Programming Job" %>
+<% big_center_text "List of Articles" %>
+
+<div class="content">
+  <%= @page > 1 ? "<h2>Page #{@page}</h2>" : "" %>
+
+  <p class="disclaimer">
+    Viewing <%= @tag ? "only" : ""%> <span class="disclaimertag">
+      <%= @tag ? @tag : "all" %></span> posts
+  </p>
+
+  <% @commentlink = true %>
+  <%= render :partial => 'post', :collection => posts,
+             :locals => {:commentlink => true} %>
+
+  <%= will_paginate :id => true %>
+
+</div> <!-- Content div -->
+
+<!-- Disqus hook -->
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+		var links = document.getElementsByTagName('a');
+		var query = '?';
+		for(var i = 0; i < links.length; i++) {
+			if(links[i].href.indexOf('#disqus_thread') >= 0) {
+				query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+			}
+		}
+		document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/angelbobsblog/get_num_replies.js' + query + '"></' + 'script>');
+	})();
+//]]>
+</script>
