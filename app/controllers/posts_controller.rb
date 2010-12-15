@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   respond_to :html
 
-  expose(:posts) { Post.all }
+  expose(:posts) { Post.paginate :page => params[:page], :order => 'posts.created_at DESC, posts.id DESC' }
   expose(:post)
 
   def create

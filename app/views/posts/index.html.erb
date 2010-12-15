@@ -1,6 +1,8 @@
 <% title "Articles about finding your dream Computer Programming Job" %>
 <% big_center_text "List of Articles" %>
 
+<% @page ||= 1 %>
+
 <div class="content">
   <%= @page > 1 ? "<h2>Page #{@page}</h2>" : "" %>
 
@@ -11,9 +13,9 @@
 
   <% @commentlink = true %>
   <%= render :partial => 'post', :collection => posts,
-             :locals => {:commentlink => true} %>
+             :locals => {:commentlink => true, :notitle => false} %>
 
-  <%= will_paginate :id => true %>
+  <%= will_paginate posts, :id => true %>
 
 </div> <!-- Content div -->
 
