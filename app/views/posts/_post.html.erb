@@ -1,5 +1,7 @@
-<% div_for post do %>
-  <h1> <%= link_to_unless_current post.title, :action => "show", :id => post %></h1>
+<%= div_for post do %>
+  <% unless notitle %>
+    <h2> <%= link_to_unless_current post.title, :action => "show", :id => post %></h2>
+  <% end %>
   <p> <span class="createdTime"> Posted:
       <%= time_to_human(post.created_at) %> ago
       (<%= post.created_at %> </span>)
@@ -12,10 +14,9 @@
   <%= simple_format post.body %>
 
   <div class="post_footer">
-  <%= @commentlink ? link_to("View Comments", :action => "show",
-                                               :id => post,
-                                        :anchor => "disqus_thread") : "" %>
-  <%= html_for_tag_div(post) %>
+    <%= commentlink ? link_to("View Comments", :action => "show",
+                                                :id => post,
+                                          :anchor => "disqus_thread") : "" %>
   </div>
 
 <% end %>
