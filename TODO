@@ -20,10 +20,8 @@ Release Get People Hired:
     - Manually set up company entries on site
 
 Release PageRank:
-  - Basic blog on existing template
   - Acts-as-taggable-on tags
-  - Migration from old blog SQLite database with old tags
-  - Convert to show WantMyJob-tagged entries from WMJ, others elsewhere
+  - Will_paginate appearance customization
 
 Release Improve Conversion:
   - Guest login that remembers answers, and asks perfect company questions
