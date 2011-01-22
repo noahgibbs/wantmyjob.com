@@ -8,7 +8,7 @@ gem 'rails', '>= 3.0.0'
 gem 'mysql2'
 gem 'decent_exposure', '~>1.0.0.rc1'
 gem "devise", '~>1.1.2'
-gem "delayed_job", :git => 'git://github.com/collectiveidea/delayed_job.git'
+gem "delayed_job", '~>2.1.0'
 gem "paper_trail"
 gem "statistics2"
 gem "hoptoad_notifier"
@@ -35,11 +35,6 @@ gem "will_paginate", "~>3.0.pre2"
 # group :development, :test do
 #   gem 'webrat'
 # end
-
-# Development-only gems
-group :development do
-  gem 'mongrel'
-end
 
 # Test-only gems
 group :test do
