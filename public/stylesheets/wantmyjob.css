@@ -243,6 +243,12 @@ cite span { color: #fff; }
 	padding: 40px;
 }
 
+.wmj_maintainance {
+  width: 80%;
+  border: solid 2px red;
+  padding: 20px;
+}
+
 .submit_btn {
 	float: right;
 	cursor: pointer;
